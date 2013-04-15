@@ -1,0 +1,51 @@
+Source: fcitx-qt5
+Section: libs
+Priority: optional
+Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
+Uploaders: Aron Xu <aron@debian.org>, YunQiang Su <wzssyqa@gmail.com>
+Build-Depends: debhelper (>= 9), cmake, pkg-config, intltool,
+               fcitx-libs-dev (>= 1:4.2.4), qtbase5-dev
+Standards-Version: 3.9.4
+Homepage: http://code.google.com/p/fcitx
+Vcs-Git: git://git.debian.org/pkg-ime/fcitx-qt5.git
+Vcs-Browser: http://git.debian.org/?p=pkg-ime/fcitx-qt5.git
+
+Package: libfcitx-qt5-0
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Free Chinese Input Toy of X - D-Bus client library for Qt5
+ Fcitx is the Free Chinese Input Toy of X, which was initially designed
+ for Chinese users, and used XIM protocol. Now it has already evolved
+ into a highly modularized, feature rich input method framework for
+ Unix-like platforms supporting a considerable amount of frontends,
+ backends and modules.
+ .
+ It offers a pleasant and modern experience, with intuitive graphical
+ configuration tools and customizable skins and mapping tables. 
+ It is highly modularized and extensible, 
+ with GTK+ 2/3 and Qt4 IM Modules, support for UIs based on Fbterm, 
+ pure Xlib, GTK+, or KDE, and a developer-friendly API.
+ .
+ This package also provides the QT 5 IM Module frontend.
+
+Package: libfcitx-qt5-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}, libfcitx-qt5-0 (= ${binary:Version})
+Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
+ Fcitx is the Free Chinese Input Toy of X, which was initially designed
+ for Chinese users, and used XIM protocol. Now it has already evolved
+ into a highly modularized, feature rich input method framework for
+ Unix-like platforms supporting a considerable amount of frontends,
+ backends and modules.
+ .
+ It offers a pleasant and modern experience, with intuitive graphical
+ configuration tools and customizable skins and mapping tables. 
+ It is highly modularized and extensible, 
+ with GTK+ 2/3 and Qt4 IM Modules, support for UIs based on Fbterm, 
+ pure Xlib, GTK+, or KDE, and a developer-friendly API.
+ .
+ This package provides the devel files for libfcitx-qt5.
