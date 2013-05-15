@@ -1,5 +1,5 @@
-fcitx-qt5 (0.1.1-0ubuntu1~ppa) raring; urgency=low
+fcitx-qt5 (0.1.1-1) experimental; urgency=low
 
-  * Init release.
+  * Initial release (Closes: #708322).
 
- -- YunQiang Su <wzssyqa@gmail.com>  Mon, 15 Apr 2013 16:09:26 +0800
+ -- Aron Xu <aron@debian.org>  Wed, 15 May 2013 14:13:09 +0800
