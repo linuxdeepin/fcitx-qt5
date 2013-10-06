@@ -1,3 +1,9 @@
+fcitx-qt5 (0.1.1-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Aron Xu <aron@debian.org>  Sun, 06 Oct 2013 17:31:49 +0800
+
 fcitx-qt5 (0.1.1-1) experimental; urgency=low
 
   * Initial release (Closes: #708322).
