@@ -4,7 +4,7 @@ Priority: optional
 Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
 Uploaders: Aron Xu <aron@debian.org>, YunQiang Su <wzssyqa@gmail.com>
 Build-Depends: debhelper (>= 9), cmake, pkg-config, intltool,
-               fcitx-libs-dev (>= 1:4.2.4), qtbase5-dev, qtbase5-private-dev
+               fcitx-libs-dev (>= 1:4.2.8), qtbase5-dev, qtbase5-private-dev
 Standards-Version: 3.9.4
 Homepage: http://code.google.com/p/fcitx
 Vcs-Git: git://anonscm.debian.org/pkg-ime/fcitx-qt5.git
@@ -36,7 +36,7 @@ Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: fcitx-frontend-qt4
+Recommends: fcitx-frontend-qt5
 Description: Free Chinese Input Toy of X - D-Bus client library for Qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
  for Chinese users, and used XIM protocol. Now it has already evolved
