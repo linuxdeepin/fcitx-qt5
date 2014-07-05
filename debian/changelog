@@ -1,3 +1,10 @@
+fcitx-qt5 (0.1.2-2) unstable; urgency=low
+
+  * Add libegl1-mesa-dev to B-D (Closes: #753204)
+    Thanks lisandro@d.o for the solution.
+
+ -- Aron Xu <aron@debian.org>  Sun, 06 Jul 2014 01:44:29 +0800
+
 fcitx-qt5 (0.1.2-1) unstable; urgency=low
 
   * New upstream release
