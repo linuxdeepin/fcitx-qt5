@@ -11,7 +11,7 @@ Build-Depends: cmake,
                pkg-config,
                qtbase5-dev,
                qtbase5-private-dev
-Standards-Version: 3.9.4
+Standards-Version: 3.9.6
 Homepage: http://code.google.com/p/fcitx
 Vcs-Git: git://anonscm.debian.org/pkg-ime/fcitx-qt5.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ime/fcitx-qt5.git
