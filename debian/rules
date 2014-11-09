@@ -10,4 +10,4 @@ CXXFLAGS += $(CPPFLAGS)
 	dh $@ --parallel
 
 override_dh_strip:
-	dh_strip --dbg-package=fcitx-libs-qt5-dbg
+	dh_strip --dbg-package=libfcitx-qt5-dbg

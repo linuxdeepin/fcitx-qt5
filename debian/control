@@ -38,9 +38,30 @@ Description: Free Chinese Input Toy of X - Qt5 IM Module frontend
  for Fcitx users who would like to use Qt5 applications.
 
 Package: fcitx-libs-qt5
+Architecture: all
+Depends: ${misc:Depends}, libfcitx-qt5-0 (>= ${source:Version})
+Recommends: fcitx-frontend-qt5
+Description: Free Chinese Input Toy of X - meta package for Qt5 D-Bus client library
+ Fcitx is the Free Chinese Input Toy of X, which was initially designed
+ for Chinese users, and used XIM protocol. Now it has already evolved
+ into a highly modularized, feature rich input method framework for
+ Unix-like platforms supporting a considerable amount of frontends,
+ backends and modules.
+ .
+ It offers a pleasant and modern experience, with intuitive graphical
+ configuration tools and customizable skins and mapping tables.
+ It is highly modularized and extensible,
+ with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
+ pure Xlib, GTK+, or KDE, and a developer-friendly API.
+ .
+ This package depends on all Qt5 D-Bus client libraries.
+
+Package: libfcitx-qt5-0
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
+Breaks: fcitx-libs-qt5 (<= 0.1.2-2)
+Replaces: fcitx-libs-qt5 (<= 0.1.2-2)
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: fcitx-frontend-qt5
 Description: Free Chinese Input Toy of X - D-Bus client library for Qt5
@@ -59,11 +80,13 @@ Description: Free Chinese Input Toy of X - D-Bus client library for Qt5
  This package contains the following library:
   * libfcitx-qt5 - D-Bus client library for Qt5
 
-Package: fcitx-libs-qt5-dev
+Package: libfcitx-qt5-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Depends: fcitx-libs-qt5 (= ${binary:Version}),
+Breaks: fcitx-libs-qt5-dev
+Replaces: fcitx-libs-qt5-dev
+Depends: libfcitx-qt5-0 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fcitx-libs-dev
@@ -82,12 +105,14 @@ Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  .
  This package provides the development files for fcitx-libs-qt5.
 
-Package: fcitx-libs-qt5-dbg
+Package: libfcitx-qt5-dbg
 Section: debug
 Architecture: any
 Priority: extra
 Multi-Arch: same
-Depends: fcitx-libs-qt5 (= ${binary:Version}),
+Breaks: fcitx-libs-qt5-dbg
+Replaces: fcitx-libs-qt5-dbg
+Depends: libfcitx-qt5-0 (= ${binary:Version}),
          ${misc:Depends},
          ${shlibs:Depends}
 Recommends: fcitx-dbg
