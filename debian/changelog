@@ -1,3 +1,15 @@
+fcitx-qt5 (0.1.2-3) experimental; urgency=medium
+
+  * Allow parallel building.
+  * Transit package nams to libfcitx-qt5 and friends.
+  * Remove unused ${shlib:Depends}.
+  * Update copyright information.
+  * Disable DH_VERBOSE.
+  * Bump std-ver to 3.9.6
+  * Add symbols file for library package.
+
+ -- Aron Xu <aron@debian.org>  Tue, 11 Nov 2014 00:09:01 +0800
+
 fcitx-qt5 (0.1.2-2) unstable; urgency=low
 
   * Add libegl1-mesa-dev to B-D (Closes: #753204)
