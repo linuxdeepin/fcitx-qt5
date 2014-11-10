@@ -1,7 +1,7 @@
 fcitx-qt5 (0.1.2-3) experimental; urgency=medium
 
   * Allow parallel building.
-  * Transit package nams to libfcitx-qt5 and friends.
+  * Transit package names to libfcitx-qt5 and friends.
   * Remove unused ${shlib:Depends}.
   * Update copyright information.
   * Disable DH_VERBOSE.
