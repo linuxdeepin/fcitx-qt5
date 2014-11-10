@@ -41,7 +41,7 @@ Package: fcitx-libs-qt5
 Architecture: all
 Depends: ${misc:Depends}, libfcitx-qt5-0 (>= ${source:Version})
 Recommends: fcitx-frontend-qt5
-Description: Free Chinese Input Toy of X - meta package for Qt5 D-Bus client library
+Description: Free Chinese Input Toy of X - metapackage for Qt5 D-Bus client library
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
  for Chinese users, and used XIM protocol. Now it has already evolved
  into a highly modularized, feature rich input method framework for
