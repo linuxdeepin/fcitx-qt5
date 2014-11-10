@@ -87,8 +87,7 @@ Multi-Arch: same
 Breaks: fcitx-libs-qt5-dev
 Replaces: fcitx-libs-qt5-dev
 Depends: libfcitx-qt5-0 (= ${binary:Version}),
-         ${misc:Depends},
-         ${shlibs:Depends}
+         ${misc:Depends}
 Recommends: fcitx-libs-dev
 Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
@@ -113,8 +112,7 @@ Multi-Arch: same
 Breaks: fcitx-libs-qt5-dbg
 Replaces: fcitx-libs-qt5-dbg
 Depends: libfcitx-qt5-0 (= ${binary:Version}),
-         ${misc:Depends},
-         ${shlibs:Depends}
+         ${misc:Depends}
 Recommends: fcitx-dbg
 Description: Free Chinese Input Toy of X - Debugging symbols for libfcitx-qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
