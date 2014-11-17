@@ -2,7 +2,7 @@ fcitx-qt5 (0.1.2-4) experimental; urgency=medium
 
   * Update symbols file for arm and power architectures.
 
- -- Aron Xu <happyaron.xu@gmail.com>  Mon, 17 Nov 2014 23:02:02 +0800
+ -- Aron Xu <aron@debian.org>  Mon, 17 Nov 2014 23:02:02 +0800
 
 fcitx-qt5 (0.1.2-3) experimental; urgency=medium
 
