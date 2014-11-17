@@ -1,108 +1,100 @@
 libfcitx-qt5.so.0 libfcitx-qt5-0 #MINVER#
- (c++)"QByteArray::~QByteArray()@Base" 0.1.2
- (c++)"QByteArray::~QByteArray()@Base" 0.1.2
- (c++)"QDBusError::~QDBusError()@Base" 0.1.2
- (c++)"QDBusError::~QDBusError()@Base" 0.1.2
+ (c++)"FcitxQtConnection::autoReconnect()@Base" 0.1.2
+ (c++)"FcitxQtConnection::connected()@Base" 0.1.2
  (c++)"FcitxQtConnection::connection()@Base" 0.1.2
+ (c++)"FcitxQtConnection::disconnected()@Base" 0.1.2
+ (c++)"FcitxQtConnection::endConnection()@Base" 0.1.2
+ (c++)"FcitxQtConnection::~FcitxQtConnection()@Base" 0.1.2
+ (c++)"FcitxQtConnection::FcitxQtConnection(QObject*)@Base" 0.1.2
  (c++)"FcitxQtConnection::isConnected()@Base" 0.1.2
+ (c++)"FcitxQtConnection::metaObject() const@Base" 0.1.2
  (c++)"FcitxQtConnection::qt_metacall(QMetaObject::Call, int, void**)@Base" 0.1.2
  (c++)"FcitxQtConnection::qt_metacast(char const*)@Base" 0.1.2
  (c++)"FcitxQtConnection::serviceName()@Base" 0.1.2
- (c++)"FcitxQtConnection::disconnected()@Base" 0.1.2
- (c++)"FcitxQtConnection::autoReconnect()@Base" 0.1.2
- (c++)"FcitxQtConnection::endConnection()@Base" 0.1.2
- (c++)"FcitxQtConnection::startConnection()@Base" 0.1.2
  (c++)"FcitxQtConnection::setAutoReconnect(bool)@Base" 0.1.2
+ (c++)"FcitxQtConnection::startConnection()@Base" 0.1.2
  (c++)"FcitxQtConnection::staticMetaObject@Base" 0.1.2
- (c++)"FcitxQtConnection::connected()@Base" 0.1.2
- (c++)"FcitxQtConnection::FcitxQtConnection(QObject*)@Base" 0.1.2
- (c++)"FcitxQtConnection::FcitxQtConnection(QObject*)@Base" 0.1.2
- (c++)"FcitxQtConnection::~FcitxQtConnection()@Base" 0.1.2
- (c++)"FcitxQtConnection::~FcitxQtConnection()@Base" 0.1.2
- (c++)"FcitxQtConnection::~FcitxQtConnection()@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::qt_metacall(QMetaObject::Call, int, void**)@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::qt_metacast(char const*)@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::staticMetaObject@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::FcitxQtKeyboardProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::FcitxQtKeyboardProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::~FcitxQtKeyboardProxy()@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::~FcitxQtKeyboardProxy()@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::~FcitxQtKeyboardProxy()@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::setVariant(QString const&)@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::setLangCode(QString const&)@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::registerMetaType()@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::setName(QString const&)@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::setLayout(QString const&)@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::~FcitxQtKeyboardLayout()@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::~FcitxQtKeyboardLayout()@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::setEnabled(bool)@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::setLangCode(QString const&)@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::setUniqueName(QString const&)@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::registerMetaType()@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::setName(QString const&)@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::~FcitxQtInputMethodItem()@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::~FcitxQtInputMethodItem()@Base" 0.1.2
+ (c++)"FcitxQtFormattedPreedit::format() const@Base" 0.1.2
+ (c++)"FcitxQtFormattedPreedit::operator==(FcitxQtFormattedPreedit const&) const@Base" 0.1.2
  (c++)"FcitxQtFormattedPreedit::registerMetaType()@Base" 0.1.2
  (c++)"FcitxQtFormattedPreedit::setFormat(int)@Base" 0.1.2
  (c++)"FcitxQtFormattedPreedit::setString(QString const&)@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::CreateICv2(QString const&, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 0.1.2
+ (c++)"FcitxQtFormattedPreedit::string() const@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::CloseIM()@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::CommitString(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::DeleteSurroundingText(int, unsigned int)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::EnableIM()@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::~FcitxQtInputContextProxy()@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::FcitxQtInputContextProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::ForwardKey(unsigned int, unsigned int, int)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::metaObject() const@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::qt_metacall(QMetaObject::Call, int, void**)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::qt_metacast(char const*)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::staticMetaObject@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::UpdateClientSideUI(QString const&, QString const&, QString const&, QString const&, QString const&, int)@Base" 0.1.2
+ (c++)"FcitxQtInputContextProxy::UpdateFormattedPreedit(QList<FcitxQtFormattedPreedit>, int)@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::enabled() const@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::~FcitxQtInputMethodItem()@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::langCode() const@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::name() const@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::registerMetaType()@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::setEnabled(bool)@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::setLangCode(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::setName(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::setUniqueName(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtInputMethodItem::uniqueName() const@Base" 0.1.2
+ (c++)"FcitxQtInputMethodProxy::~FcitxQtInputMethodProxy()@Base" 0.1.2
+ (c++)"FcitxQtInputMethodProxy::FcitxQtInputMethodProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
+ (c++)"FcitxQtInputMethodProxy::metaObject() const@Base" 0.1.2
  (c++)"FcitxQtInputMethodProxy::qt_metacall(QMetaObject::Call, int, void**)@Base" 0.1.2
  (c++)"FcitxQtInputMethodProxy::qt_metacast(char const*)@Base" 0.1.2
  (c++)"FcitxQtInputMethodProxy::staticMetaObject@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::FcitxQtInputMethodProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::FcitxQtInputMethodProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::~FcitxQtInputMethodProxy()@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::~FcitxQtInputMethodProxy()@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::~FcitxQtInputMethodProxy()@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::ForwardKey(unsigned int, unsigned int, int)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::qt_metacall(QMetaObject::Call, int, void**)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::qt_metacast(char const*)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::CommitString(QString const&)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::staticMetaObject@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::UpdateClientSideUI(QString const&, QString const&, QString const&, QString const&, QString const&, int)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::DeleteSurroundingText(int, unsigned int)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::UpdateFormattedPreedit(QList<FcitxQtFormattedPreedit>, int)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::CloseIM()@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::EnableIM()@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::FcitxQtInputContextProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::FcitxQtInputContextProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::~FcitxQtInputContextProxy()@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::~FcitxQtInputContextProxy()@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::~FcitxQtInputContextProxy()@Base" 0.1.2
- (c++)"QString::~QString()@Base" 0.1.2
- (c++)"QString::~QString()@Base" 0.1.2
- (c++)"FcitxQtConnection::metaObject() const@Base" 0.1.2
- (c++)"FcitxQtKeyboardProxy::metaObject() const@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::name() const@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::layout() const@Base" 0.1.2
- (c++)"FcitxQtKeyboardLayout::variant() const@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::~FcitxQtKeyboardLayout()@Base" 0.1.2
  (c++)"FcitxQtKeyboardLayout::langCode() const@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::uniqueName() const@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::name() const@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::enabled() const@Base" 0.1.2
- (c++)"FcitxQtInputMethodItem::langCode() const@Base" 0.1.2
- (c++)"FcitxQtFormattedPreedit::format() const@Base" 0.1.2
- (c++)"FcitxQtFormattedPreedit::string() const@Base" 0.1.2
- (c++)"FcitxQtFormattedPreedit::operator==(FcitxQtFormattedPreedit const&) const@Base" 0.1.2
- (c++)"FcitxQtInputMethodProxy::metaObject() const@Base" 0.1.2
- (c++)"FcitxQtInputContextProxy::metaObject() const@Base" 0.1.2
- (c++)"typeinfo for FcitxQtConnection@Base" 0.1.2
- (c++)"typeinfo for FcitxQtKeyboardProxy@Base" 0.1.2
- (c++)"typeinfo for FcitxQtInputMethodProxy@Base" 0.1.2
- (c++)"typeinfo for FcitxQtInputContextProxy@Base" 0.1.2
- (c++)"typeinfo name for FcitxQtConnection@Base" 0.1.2
- (c++)"typeinfo name for FcitxQtKeyboardProxy@Base" 0.1.2
- (c++)"typeinfo name for FcitxQtInputMethodProxy@Base" 0.1.2
- (c++)"typeinfo name for FcitxQtInputContextProxy@Base" 0.1.2
- (c++)"vtable for FcitxQtConnection@Base" 0.1.2
- (c++)"vtable for FcitxQtKeyboardProxy@Base" 0.1.2
- (c++)"vtable for FcitxQtInputMethodProxy@Base" 0.1.2
- (c++)"vtable for FcitxQtInputContextProxy@Base" 0.1.2
- (c++)"operator<<(QDBusArgument&, FcitxQtKeyboardLayout const&)@Base" 0.1.2
- (c++)"operator<<(QDBusArgument&, FcitxQtInputMethodItem const&)@Base" 0.1.2
- (c++)"operator<<(QDBusArgument&, FcitxQtFormattedPreedit const&)@Base" 0.1.2
- (c++)"operator>>(QDBusArgument const&, FcitxQtKeyboardLayout&)@Base" 0.1.2
- (c++)"operator>>(QDBusArgument const&, FcitxQtInputMethodItem&)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::layout() const@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::name() const@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::registerMetaType()@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::setLangCode(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::setLayout(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::setName(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::setVariant(QString const&)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardLayout::variant() const@Base" 0.1.2
+ (c++)"FcitxQtKeyboardProxy::~FcitxQtKeyboardProxy()@Base" 0.1.2
+ (c++)"FcitxQtKeyboardProxy::FcitxQtKeyboardProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardProxy::metaObject() const@Base" 0.1.2
+ (c++)"FcitxQtKeyboardProxy::qt_metacall(QMetaObject::Call, int, void**)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardProxy::qt_metacast(char const*)@Base" 0.1.2
+ (c++)"FcitxQtKeyboardProxy::staticMetaObject@Base" 0.1.2
  (c++)"operator>>(QDBusArgument const&, FcitxQtFormattedPreedit&)@Base" 0.1.2
+ (c++)"operator>>(QDBusArgument const&, FcitxQtInputMethodItem&)@Base" 0.1.2
+ (c++)"operator>>(QDBusArgument const&, FcitxQtKeyboardLayout&)@Base" 0.1.2
+ (c++)"operator<<(QDBusArgument&, FcitxQtFormattedPreedit const&)@Base" 0.1.2
+ (c++)"operator<<(QDBusArgument&, FcitxQtInputMethodItem const&)@Base" 0.1.2
+ (c++)"operator<<(QDBusArgument&, FcitxQtKeyboardLayout const&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::ConfigureAddon(QString const&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::ConfigureIM(QString const&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC()@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentUI()@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::GetIMAddon(QString const&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::ReloadAddonConfig(QString const&)@Base" 0.1.2
+ (c++|optional)"FcitxQtInputMethodProxy::SetCurrentIM(QString const&)@Base" 0.1.2
+ (c++)"QByteArray::~QByteArray()@Base" 0.1.2
+ (c++)"QDBusError::~QDBusError()@Base" 0.1.2
+ (c++)"QString::~QString()@Base" 0.1.2
+ (c++)"typeinfo for FcitxQtConnection@Base" 0.1.2
+ (c++)"typeinfo for FcitxQtInputContextProxy@Base" 0.1.2
+ (c++)"typeinfo for FcitxQtInputMethodProxy@Base" 0.1.2
+ (c++)"typeinfo for FcitxQtKeyboardProxy@Base" 0.1.2
+ (c++)"typeinfo name for FcitxQtConnection@Base" 0.1.2
+ (c++)"typeinfo name for FcitxQtInputContextProxy@Base" 0.1.2
+ (c++)"typeinfo name for FcitxQtInputMethodProxy@Base" 0.1.2
+ (c++)"typeinfo name for FcitxQtKeyboardProxy@Base" 0.1.2
+ (c++)"vtable for FcitxQtConnection@Base" 0.1.2
+ (c++)"vtable for FcitxQtInputContextProxy@Base" 0.1.2
+ (c++)"vtable for FcitxQtInputMethodProxy@Base" 0.1.2
+ (c++)"vtable for FcitxQtKeyboardProxy@Base" 0.1.2
