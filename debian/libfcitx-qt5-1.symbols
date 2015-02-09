@@ -38,9 +38,9 @@ libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++|optional)"FcitxQtInputMethodProxy::ConfigureIM(QString const&)@Base" 1.0.0
  (c++)"FcitxQtInputMethodProxy::qt_metacall(QMetaObject::Call, int, void**)@Base" 1.0.0
  (c++)"FcitxQtInputMethodProxy::qt_metacast(char const*)@Base" 1.0.0
- (c++)"FcitxQtInputMethodProxy::GetCurrentIM()@Base" 1.0.0
- (c++)"FcitxQtInputMethodProxy::GetCurrentUI()@Base" 1.0.0
- (c++)"FcitxQtInputMethodProxy::GetCurrentState()@Base" 1.0.0
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentIM()@Base" 1.0.0
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentUI()@Base" 1.0.0
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentState()@Base" 1.0.0
  (c++)"FcitxQtInputMethodProxy::staticMetaObject@Base" 1.0.0
  (c++|optional)"FcitxQtInputMethodProxy::ReloadAddonConfig(QString const&)@Base" 1.0.0
  (c++)"FcitxQtInputMethodProxy::FcitxQtInputMethodProxy(QString const&, QString const&, QDBusConnection const&, QObject*)@Base" 1.0.0
@@ -74,7 +74,10 @@ libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"FcitxQtInputMethodProxy::metaObject() const@Base" 1.0.0
  (c++|optional)"FcitxQtInputMethodProxy::GetIMAddon(QString const&)@Base" 1.0.0
  (c++|optional)"FcitxQtInputMethodProxy::ConfigureAddon(QString const&)@Base" 1.0.0
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 1.0.0
  (c++|optional)"FcitxQtInputMethodProxy::CreateIC()@Base" 1.0.0
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&)@Base" 1.0.0
+ (c++|optional)"FcitxQtInputMethodProxy::SetCurrentIM(QString const&)@Base" 1.0.0
  (c++)"FcitxQtInputContextProxy::metaObject() const@Base" 1.0.0
  (c++)"typeinfo for FcitxQtConnection@Base" 1.0.0
  (c++)"typeinfo for FcitxQtKeyboardProxy@Base" 1.0.0
