@@ -8,7 +8,6 @@ Build-Depends: cmake,
                extra-cmake-modules (>= 1.4.0),
                fcitx-libs-dev (>= 1:4.2.8),
                intltool,
-               libegl1-mesa-dev,
                pkg-config,
                qtbase5-dev,
                qtbase5-private-dev
@@ -40,20 +39,20 @@ Description: Free Chinese Input Toy of X - Qt5 IM Module frontend
 
 Package: fcitx-libs-qt5
 Architecture: all
-Depends: libfcitx-qt5-0 (>= ${source:Version}), ${misc:Depends}
+Depends: libfcitx-qt5-1 (>= ${source:Version}), ${misc:Depends}
 Recommends: fcitx-frontend-qt5
 Description: transitional dummy package
  This is a transitional dummy package. It can safely be removed.
 
-Package: libfcitx-qt5-0
+Package: libfcitx-qt5-1
 Architecture: any
 Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
-Breaks: fcitx-libs-qt5 (<= 0.1.2-2)
-Replaces: fcitx-libs-qt5 (<= 0.1.2-2)
+Breaks: fcitx-libs-qt5 (<< 1.0.0)
+Replaces: fcitx-libs-qt5 (<< 1.0.0)
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: fcitx-frontend-qt5
-Description: Free Chinese Input Toy of X - D-Bus client library for Qt5
+Description: Free Chinese Input Toy of X - D-Bus client libraries for Qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
  for Chinese users, and used XIM protocol. Now it has already evolved
  into a highly modularized, feature rich input method framework for
@@ -66,8 +65,9 @@ Description: Free Chinese Input Toy of X - D-Bus client library for Qt5
  with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
  pure Xlib, GTK+, or KDE, and a developer-friendly API.
  .
- This package contains the following library:
-  * libfcitx-qt5 - D-Bus client library for Qt5
+ This package contains the following libraries:
+  * libFcitxQt5DBusAddons - D-Bus Addons library for Qt5
+  * libFcitxQt5WidgetsAddons - Widgets Addons library for Qt5
 
 Package: libfcitx-qt5-dev
 Section: libdevel
@@ -75,7 +75,7 @@ Architecture: any
 Multi-Arch: same
 Breaks: fcitx-libs-qt5-dev
 Replaces: fcitx-libs-qt5-dev
-Depends: libfcitx-qt5-0 (= ${binary:Version}), ${misc:Depends}
+Depends: libfcitx-qt5-1 (= ${binary:Version}), ${misc:Depends}
 Recommends: fcitx-libs-dev
 Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
@@ -90,7 +90,7 @@ Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
  pure Xlib, GTK+, or KDE, and a developer-friendly API.
  .
- This package provides the development files for fcitx-libs-qt5.
+ This package provides the development files of fcitx-qt5.
 
 Package: libfcitx-qt5-dbg
 Section: debug
@@ -99,7 +99,7 @@ Priority: extra
 Multi-Arch: same
 Breaks: fcitx-libs-qt5-dbg
 Replaces: fcitx-libs-qt5-dbg
-Depends: libfcitx-qt5-0 (= ${binary:Version}), ${misc:Depends}
+Depends: libfcitx-qt5-1 (= ${binary:Version}), ${misc:Depends}
 Recommends: fcitx-dbg
 Description: Free Chinese Input Toy of X - Debugging symbols for libfcitx-qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
@@ -114,4 +114,4 @@ Description: Free Chinese Input Toy of X - Debugging symbols for libfcitx-qt5
  with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
  pure Xlib, GTK+, or KDE, and a developer-friendly API.
  .
- This package provides the debugging symbols for fcitx-libs-qt5.
+ This package provides the debugging symbols for fcitx-qt5.
