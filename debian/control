@@ -12,7 +12,7 @@ Build-Depends: cmake,
                qtbase5-dev,
                qtbase5-private-dev
 Standards-Version: 3.9.6
-Homepage: http://code.google.com/p/fcitx
+Homepage: http://www.fcitx-im.org
 Vcs-Git: git://anonscm.debian.org/pkg-ime/fcitx-qt5.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-ime/fcitx-qt5.git
 
@@ -41,20 +41,8 @@ Package: fcitx-libs-qt5
 Architecture: all
 Depends: ${misc:Depends}, libfcitx-qt5-0 (>= ${source:Version})
 Recommends: fcitx-frontend-qt5
-Description: Free Chinese Input Toy of X - metapackage for Qt5 D-Bus client library
- Fcitx is the Free Chinese Input Toy of X, which was initially designed
- for Chinese users, and used XIM protocol. Now it has already evolved
- into a highly modularized, feature rich input method framework for
- Unix-like platforms supporting a considerable amount of frontends,
- backends and modules.
- .
- It offers a pleasant and modern experience, with intuitive graphical
- configuration tools and customizable skins and mapping tables.
- It is highly modularized and extensible,
- with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
- pure Xlib, GTK+, or KDE, and a developer-friendly API.
- .
- This package depends on all Qt5 D-Bus client libraries.
+Description: transitional dummy package
+ This is a transitional dummy package. It can safely be removed.
 
 Package: libfcitx-qt5-0
 Architecture: any
