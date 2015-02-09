@@ -39,6 +39,7 @@ Description: Free Chinese Input Toy of X - Qt5 IM Module frontend
 
 Package: fcitx-libs-qt5
 Architecture: all
+Section: oldlibs
 Depends: libfcitx-qt5-1 (>= ${source:Version}), ${misc:Depends}
 Recommends: fcitx-frontend-qt5
 Description: transitional dummy package
