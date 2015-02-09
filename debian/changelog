@@ -1,3 +1,14 @@
+fcitx-qt5 (1.0.0-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Update debian/copyright
+  * Bump package name to libfcitx-qt5-1.
+  * Add extra-cmake-modules to B-D
+  * Update install file and symbols
+  * Update homepage, update description of transitional package
+
+ -- Aron Xu <aron@debian.org>  Tue, 10 Feb 2015 01:57:55 +0800
+
 fcitx-qt5 (0.1.2-4) experimental; urgency=medium
 
   * Update symbols file for arm and power architectures.
