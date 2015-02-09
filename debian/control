@@ -5,6 +5,7 @@ Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
 Uploaders: Aron Xu <aron@debian.org>, YunQiang Su <wzssyqa@gmail.com>
 Build-Depends: cmake,
                debhelper (>= 9),
+               extra-cmake-modules (>= 1.4.0),
                fcitx-libs-dev (>= 1:4.2.8),
                intltool,
                libegl1-mesa-dev,
@@ -39,7 +40,7 @@ Description: Free Chinese Input Toy of X - Qt5 IM Module frontend
 
 Package: fcitx-libs-qt5
 Architecture: all
-Depends: ${misc:Depends}, libfcitx-qt5-0 (>= ${source:Version})
+Depends: libfcitx-qt5-0 (>= ${source:Version}), ${misc:Depends}
 Recommends: fcitx-frontend-qt5
 Description: transitional dummy package
  This is a transitional dummy package. It can safely be removed.
@@ -74,8 +75,7 @@ Architecture: any
 Multi-Arch: same
 Breaks: fcitx-libs-qt5-dev
 Replaces: fcitx-libs-qt5-dev
-Depends: libfcitx-qt5-0 (= ${binary:Version}),
-         ${misc:Depends}
+Depends: libfcitx-qt5-0 (= ${binary:Version}), ${misc:Depends}
 Recommends: fcitx-libs-dev
 Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
@@ -99,8 +99,7 @@ Priority: extra
 Multi-Arch: same
 Breaks: fcitx-libs-qt5-dbg
 Replaces: fcitx-libs-qt5-dbg
-Depends: libfcitx-qt5-0 (= ${binary:Version}),
-         ${misc:Depends}
+Depends: libfcitx-qt5-0 (= ${binary:Version}), ${misc:Depends}
 Recommends: fcitx-dbg
 Description: Free Chinese Input Toy of X - Debugging symbols for libfcitx-qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
