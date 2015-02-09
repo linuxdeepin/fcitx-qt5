@@ -7,7 +7,7 @@ CFLAGS += $(CPPFLAGS)
 CXXFLAGS += $(CPPFLAGS)
 
 %:
-	dh $@ --parallel
+	dh $@ --parallel --fail-missing
 
 override_dh_strip:
 	dh_strip --dbg-package=libfcitx-qt5-dbg
