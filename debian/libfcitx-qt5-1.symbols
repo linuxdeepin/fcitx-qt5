@@ -156,7 +156,7 @@ libFcitxQt5WidgetsAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"typeinfo name for FcitxQtConfigUIWidget@Base" 1.0.0
  (c++)"typeinfo name for FcitxQtKeySequenceWidget@Base" 1.0.0
  (c++)"vtable for FcitxQtConfigUIFactory@Base" 1.0.0
- (c++)"vtable for FcitxQtConfigUIFactoryInterface@Base" 1.0.0
+ (c++|optional)"vtable for FcitxQtConfigUIFactoryInterface@Base" 1.0.0
  (c++)"vtable for FcitxQtConfigUIPlugin@Base" 1.0.0
  (c++)"vtable for FcitxQtConfigUIWidget@Base" 1.0.0
  (c++)"vtable for FcitxQtKeySequenceWidget@Base" 1.0.0
