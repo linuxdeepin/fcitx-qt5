@@ -1,3 +1,11 @@
+fcitx-qt5 (1.0.4-1) unstable; urgency=medium
+
+  * Imported Upstream version 1.0.4
+  * Update symbols
+  * Update path of CMake files
+
+ -- Aron Xu <aron@debian.org>  Fri, 30 Oct 2015 17:03:51 +0800
+
 fcitx-qt5 (1.0.0-1) experimental; urgency=medium
 
   * New upstream release.
