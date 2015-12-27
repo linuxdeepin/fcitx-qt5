@@ -1,3 +1,9 @@
+fcitx-qt5 (1.0.5-1) unstable; urgency=medium
+
+  * Imported Upstream version 1.0.5
+
+ -- Aron Xu <aron@debian.org>  Fri, 25 Dec 2015 15:51:50 +0800
+
 fcitx-qt5 (1.0.4-1) unstable; urgency=medium
 
   * Imported Upstream version 1.0.4
