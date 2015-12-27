@@ -77,7 +77,7 @@ libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"FcitxQtKeyboardProxy::staticMetaObject@Base" 1.0.0
  (c++)"FcitxQtKeyboardProxy::~FcitxQtKeyboardProxy()@Base" 1.0.0
  (c++)"QByteArray::~QByteArray()@Base" 1.0.0
- (c++)"QDBusError::~QDBusError()@Base" 1.0.0
+ (c++|optional)"QDBusError::~QDBusError()@Base" 1.0.0
  (c++)"QString::~QString()@Base" 1.0.0
  (c++)"operator<<(QDBusArgument&, FcitxQtFormattedPreedit const&)@Base" 1.0.0
  (c++)"operator<<(QDBusArgument&, FcitxQtInputMethodItem const&)@Base" 1.0.0
@@ -97,6 +97,46 @@ libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"vtable for FcitxQtInputContextProxy@Base" 1.0.0
  (c++)"vtable for FcitxQtInputMethodProxy@Base" 1.0.0
  (c++)"vtable for FcitxQtKeyboardProxy@Base" 1.0.0
+ (c++|optional)"FcitxQtInputContextProxy::CurrentIM(QString const&, QString const&, QString const&)@Base" 1.0.5
+ (c++|optional)"FcitxQtKeyboardProxy::GetLayouts()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtKeyboardProxy::GetLayoutForIM(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtKeyboardProxy::GetLayoutForIM(QString const&, QString&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtKeyboardProxy::SetLayoutForIM(QString const&, QString const&, QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ActivateIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetIMAddon(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ConfigureIM(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ResetIMList()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentUI()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::InactivateIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ReloadConfig()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::SetCurrentIM(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ConfigureAddon(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentState()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ReloadAddonConfig(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::Exit()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::Restart()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ToggleIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::Configure()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::MouseEvent(int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetCapacity(unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetCursorRect(int, int, int, int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::ProcessKeyEvent(unsigned int, unsigned int, unsigned int, int, unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetCursorLocation(int, int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetSurroundingText(QString const&, unsigned int, unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetSurroundingTextPosition(unsigned int, unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::Reset()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::CloseIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::FocusIn()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::EnableIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::FocusOut()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::DestroyIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
 libFcitxQt5WidgetsAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"FcitxQtConfigUIFactory::FcitxQtConfigUIFactory(QObject*)@Base" 1.0.0
  (c++)"FcitxQtConfigUIFactory::create(QString const&)@Base" 1.0.0
@@ -160,3 +200,39 @@ libFcitxQt5WidgetsAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"vtable for FcitxQtConfigUIPlugin@Base" 1.0.0
  (c++)"vtable for FcitxQtConfigUIWidget@Base" 1.0.0
  (c++)"vtable for FcitxQtKeySequenceWidget@Base" 1.0.0
+ (c++|optional)"FcitxQtInputContextProxy::CurrentIM(QString const&, QString const&, QString const&)@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ActivateIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv2(QString const&, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetIMAddon(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ConfigureIM(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ResetIMList()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentUI()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::InactivateIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ReloadConfig()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::SetCurrentIM(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ConfigureAddon(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::GetCurrentState()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ReloadAddonConfig(QString const&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::Exit()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::Restart()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::CreateIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::ToggleIM()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputMethodProxy::Configure()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::MouseEvent(int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetCapacity(unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetCursorRect(int, int, int, int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::ProcessKeyEvent(unsigned int, unsigned int, unsigned int, int, unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetCursorLocation(int, int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetSurroundingText(QString const&, unsigned int, unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::SetSurroundingTextPosition(unsigned int, unsigned int)::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::Reset()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::CloseIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::FocusIn()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::EnableIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::FocusOut()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
+ (c++|optional)"FcitxQtInputContextProxy::DestroyIC()::{lambda()#1}::operator()() const::qstring_literal@Base" 1.0.5
