@@ -92,27 +92,3 @@ Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  pure Xlib, GTK+, or KDE, and a developer-friendly API.
  .
  This package provides the development files of fcitx-qt5.
-
-Package: libfcitx-qt5-dbg
-Section: debug
-Architecture: any
-Priority: extra
-Multi-Arch: same
-Breaks: fcitx-libs-qt5-dbg
-Replaces: fcitx-libs-qt5-dbg
-Depends: libfcitx-qt5-1 (= ${binary:Version}), ${misc:Depends}
-Recommends: fcitx-dbg
-Description: Free Chinese Input Toy of X - Debugging symbols for libfcitx-qt5
- Fcitx is the Free Chinese Input Toy of X, which was initially designed
- for Chinese users, and used XIM protocol. Now it has already evolved
- into a highly modularized, feature rich input method framework for
- Unix-like platforms supporting a considerable amount of frontends,
- backends and modules.
- .
- It offers a pleasant and modern experience, with intuitive graphical
- configuration tools and customizable skins and mapping tables.
- It is highly modularized and extensible,
- with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
- pure Xlib, GTK+, or KDE, and a developer-friendly API.
- .
- This package provides the debugging symbols for fcitx-qt5.
