@@ -109,7 +109,7 @@ enum FcitxKeyState {
 };
 
 struct FcitxQtICData {
-    FcitxQtICData() : capacity(0), proxy(0), surroundingAnchor(-1), surroundingCursor(-1) {}
+    FcitxQtICData() : capacity(0), proxy(nullptr), surroundingAnchor(-1), surroundingCursor(-1) {}
     FcitxQtICData(const FcitxQtICData& that) = delete;
     ~FcitxQtICData() {
         if (proxy) {
@@ -120,7 +120,7 @@ struct FcitxQtICData {
         }
     }
     QFlags<FcitxCapacityFlags> capacity;
-    QPointer<FcitxQtInputContextProxy> proxy;
+    FcitxQtInputContextProxy *proxy;
     QRect rect;
     QString surroundingText;
     int surroundingAnchor;
@@ -144,7 +144,7 @@ public:
     virtual ~ProcessKeyWatcher() {
     }
 
-    const QKeyEvent& event() {
+    const QKeyEvent& keyEvent() {
         return m_event;
     }
 
@@ -213,7 +213,7 @@ public Q_SLOTS:
 
 
 private:
-    void createInputContext(WId w);
+    void createInputContext(QWindow *w);
     bool processCompose(uint keyval, uint state, FcitxKeyEventType event);
     QKeyEvent* createKeyEvent(uint keyval, uint state, int type);
 
@@ -240,7 +240,6 @@ private:
     void createICData(QWindow* w);
     FcitxQtInputContextProxy* validIC();
     FcitxQtInputContextProxy* validICByWindow(QWindow* window);
-    FcitxQtInputContextProxy* validICByWId(WId wid);
     bool filterEventFallback(uint keyval, uint keycode, uint state, bool press);
 
     FcitxQtConnection* m_connection;
@@ -254,9 +253,8 @@ private:
     QString m_lastSurroundingText;
     int m_lastSurroundingAnchor;
     int m_lastSurroundingCursor;
-    std::unordered_map<WId, FcitxQtICData> m_icMap;
-    std::unordered_map<QObject*, WId> m_windowToWidMap;
-    WId m_lastWId;
+    std::unordered_map<QWindow*, FcitxQtICData> m_icMap;
+    QPointer<QWindow> m_lastWindow;
     bool m_destroy;
     QScopedPointer<struct xkb_context, XkbContextDeleter> m_xkbContext;
     QScopedPointer<struct xkb_compose_table, XkbComposeTableDeleter>  m_xkbComposeTable;
