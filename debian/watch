@@ -1,2 +1,4 @@
 version=3
-http://code.google.com/p/fcitx/downloads/list .*/fcitx-qt5-*\.*(.*)\.tar\.xz
+opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%fcitx-qt5-$1.tar.gz%" \
+  https://github.com/fcitx/fcitx-qt5/tags \
+  (?:.*?/)?v?(\d[\d.]*)\.tar\.gz
