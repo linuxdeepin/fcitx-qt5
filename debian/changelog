@@ -1,7 +1,7 @@
 fcitx-qt5 (1.1.0-1) unstable; urgency=medium
 
   * Team upload
-  * Imported Upstream version 1.1.0
+  * Imported Upstream version 1.1.0 (Closes: #873063)
   * d/watch: change upstream url to github
   * Remove libfcitx-qt5-dbg
   * Update compat, debhelper to 10
@@ -11,7 +11,7 @@ fcitx-qt5 (1.1.0-1) unstable; urgency=medium
   * Bump Standards-Version to 4.1.0
   * Update symbols
 
- -- Shengjing Zhu <i@zhsj.me>  Mon, 28 Aug 2017 17:46:02 +0800
+ -- Shengjing Zhu <i@zhsj.me>  Mon, 28 Aug 2017 17:52:17 +0800
 
 fcitx-qt5 (1.0.5-1) unstable; urgency=medium
 
