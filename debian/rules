@@ -7,4 +7,7 @@ CFLAGS += $(CPPFLAGS)
 CXXFLAGS += $(CPPFLAGS)
 
 %:
-	dh $@ --parallel --fail-missing
+	dh $@
+
+override_dh_missing:
+	 dh_missing --fail-missing --list-missing
