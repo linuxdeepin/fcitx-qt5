@@ -1,4 +1,4 @@
-version=3
-opts="filenamemangle=s%(?:.*?)?v?(\d[\d.]*)\.tar\.gz%fcitx-qt5-$1.tar.gz%" \
-  https://github.com/fcitx/fcitx-qt5/tags \
-  (?:.*?/)?v?(\d[\d.]*)\.tar\.gz
+version=4
+opts="" \
+ https://download.fcitx-im.org/fcitx-qt5/ \
+ fcitx-qt5-?(\d[\d.]*)@ARCHIVE_EXT@ debian uupdate

@@ -1,3 +1,16 @@
+fcitx-qt5 (1.1.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Refresh packaging instructions.
+    + Use canonical Vcs URL.
+    + Limit cmake version explicitly.
+  * Drop transitional dummy package fcitx-libs-qt5.
+    (real package in jessie; dummy in stretch; removed in buster)
+  * Point d/watch to download.fcitx-im.org.
+
+ -- Boyuan Yang <073plan@gmail.com>  Thu, 28 Sep 2017 00:18:54 +0800
+
 fcitx-qt5 (1.1.0-1) unstable; urgency=medium
 
   * Team upload

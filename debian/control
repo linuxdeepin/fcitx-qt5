@@ -3,18 +3,18 @@ Section: libs
 Priority: optional
 Maintainer: IME Packaging Team <pkg-ime-devel@lists.alioth.debian.org>
 Uploaders: Aron Xu <aron@debian.org>, YunQiang Su <wzssyqa@gmail.com>
-Build-Depends: cmake,
+Build-Depends: cmake (>= 3.1),
                debhelper (>= 10),
                extra-cmake-modules (>= 1.4.0),
                fcitx-libs-dev (>= 1:4.2.8),
                intltool,
                pkg-config,
                qtbase5-dev,
-               qtbase5-private-dev
+               qtbase5-private-dev,
 Standards-Version: 4.1.0
 Homepage: https://www.fcitx-im.org
-Vcs-Git: git://anonscm.debian.org/pkg-ime/fcitx-qt5.git
-Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ime/fcitx-qt5.git
+Vcs-Git: https://anonscm.debian.org/git/pkg-ime/fcitx-qt5.git
+Vcs-Browser: https://anonscm.debian.org/git/pkg-ime/fcitx-qt5.git
 
 Package: fcitx-frontend-qt5
 Architecture: any
@@ -36,14 +36,6 @@ Description: Free Chinese Input Toy of X - Qt5 IM Module frontend
  .
  This package provides the Qt5 IM Module frontend, which is necessary
  for Fcitx users who would like to use Qt5 applications.
-
-Package: fcitx-libs-qt5
-Architecture: all
-Section: oldlibs
-Depends: libfcitx-qt5-1 (>= ${source:Version}), ${misc:Depends}
-Recommends: fcitx-frontend-qt5
-Description: transitional dummy package
- This is a transitional dummy package. It can safely be removed.
 
 Package: libfcitx-qt5-1
 Architecture: any
