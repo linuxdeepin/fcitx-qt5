@@ -76,6 +76,19 @@ get_locale()
     return locale;
 }
 
+static bool objectAcceptsInputMethod()
+{
+    bool enabled = false;
+    QObject *object = qApp->focusObject();
+    if (object) {
+        QInputMethodQueryEvent query(Qt::ImEnabled);
+        QGuiApplication::sendEvent(object, &query);
+        enabled = query.value(Qt::ImEnabled).toBool();
+    }
+
+    return enabled;
+}
+
 struct xkb_context* _xkb_context_new_helper()
 {
     struct xkb_context* context = xkb_context_new(XKB_CONTEXT_NO_FLAGS);
@@ -186,6 +199,11 @@ void QFcitxPlatformInputContext::reset()
 
 void QFcitxPlatformInputContext::update(Qt::InputMethodQueries queries )
 {
+    // ignore the boring query
+    if (!(queries & (Qt::ImCursorRectangle | Qt::ImHints |  Qt::ImSurroundingText | Qt::ImCursorPosition))) {
+        return;
+    }
+
     QWindow* window = qApp->focusWindow();
     FcitxQtInputContextProxy* proxy = validICByWindow(window);
     if (!proxy)
@@ -214,6 +232,7 @@ void QFcitxPlatformInputContext::update(Qt::InputMethodQueries queries )
     else \
         removeCapacity(data, _CAPACITY);
 
+        CHECK_HINTS(Qt::ImhHiddenText, CAPACITY_PASSWORD)
         CHECK_HINTS(Qt::ImhNoAutoUppercase, CAPACITY_NOAUTOUPPERCASE)
         CHECK_HINTS(Qt::ImhPreferNumbers, CAPACITY_NUMBER)
         CHECK_HINTS(Qt::ImhPreferUppercase, CAPACITY_UPPERCASE)
@@ -330,13 +349,21 @@ void QFcitxPlatformInputContext::cursorRectChanged()
     if(!r.isValid())
         return;
 
-    r.moveTopLeft(inputWindow->mapToGlobal(r.topLeft()));
+    // not sure if this is necessary but anyway, qt's screen used to be buggy.
+    if (!inputWindow->screen()) {
+        return;
+    }
 
     qreal scale = inputWindow->devicePixelRatio();
-    if (data.rect != r) {
-        data.rect = r;
-        proxy->SetCursorRect(r.x() * scale, r.y() * scale,
-                             r.width() * scale, r.height() * scale);
+    auto screenGeometry = inputWindow->screen()->geometry();
+    auto point = inputWindow->mapToGlobal(r.topLeft());
+    auto native = (point - screenGeometry.topLeft()) * scale + screenGeometry.topLeft();
+    QRect newRect(native, r.size() * scale);
+
+    if (data.rect != newRect) {
+        data.rect = newRect;
+        proxy->SetCursorRect(newRect.x(), newRect.y(), newRect.width(),
+                             newRect.height());
     }
 }
 
@@ -612,6 +639,9 @@ bool QFcitxPlatformInputContext::filterEvent(const QEvent* event)
             break;
         }
 
+        // we need password flag ahead.
+        update(Qt::ImHints);
+
         const QKeyEvent* keyEvent = static_cast<const QKeyEvent*>(event);
         quint32 keyval = keyEvent->nativeVirtualKey();
         quint32 keycode = keyEvent->nativeScanCode();
@@ -622,7 +652,8 @@ bool QFcitxPlatformInputContext::filterEvent(const QEvent* event)
             break;
         }
 
-        if (!inputMethodAccepted())
+        // Force query the value of ImEnabled, this may workaround some bug in Qt
+        if (!inputMethodAccepted() && !objectAcceptsInputMethod())
             break;
 
         QObject *input = qApp->focusObject();
