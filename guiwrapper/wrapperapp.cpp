@@ -24,24 +24,25 @@
 
 #include <QDebug>
 
-#include "wrapperapp.h"
-#include "mainwindow.h"
+#include "fcitx-utils/utils.h"
 #include "fcitxqtconfiguifactory.h"
 #include "fcitxqtconnection.h"
-#include "fcitx-utils/utils.h"
+#include "mainwindow.h"
+#include "wrapperapp.h"
 
-WrapperApp::WrapperApp(int& argc, char** argv): QApplication(argc, argv)
-    ,m_factory(new FcitxQtConfigUIFactory(this))
-    ,m_mainWindow(0)
-{
-    char* localedir = fcitx_utils_get_fcitx_path("localedir");
+WrapperApp::WrapperApp(int &argc, char **argv)
+    : QApplication(argc, argv), m_factory(new FcitxQtConfigUIFactory(this)),
+      m_mainWindow(0) {
+    char *localedir = fcitx_utils_get_fcitx_path("localedir");
     setlocale(LC_ALL, "");
     bindtextdomain("fcitx", localedir);
+    bindtextdomain("fcitx-qt5", localedir);
     free(localedir);
     bind_textdomain_codeset("fcitx", "UTF-8");
+    bind_textdomain_codeset("fcitx-qt5", "UTF-8");
     textdomain("fcitx");
 
-    FcitxQtConfigUIWidget* widget = 0;
+    FcitxQtConfigUIWidget *widget = 0;
 
     if (argc == 3 && strcmp(argv[1], "--test") == 0) {
         if (m_factory->test(QString::fromLocal8Bit(argv[2]))) {
@@ -63,15 +64,10 @@ WrapperApp::WrapperApp(int& argc, char** argv): QApplication(argc, argv)
     }
 }
 
-WrapperApp::~WrapperApp()
-{
+WrapperApp::~WrapperApp() {
     if (m_mainWindow) {
         delete m_mainWindow;
     }
 }
 
-void WrapperApp::errorExit()
-{
-    exit(1);
-}
-
+void WrapperApp::errorExit() { exit(1); }
