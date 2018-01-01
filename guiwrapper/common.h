@@ -24,6 +24,6 @@
 
 #include <libintl.h>
 
-#define _(x) QString::fromUtf8(dgettext("fcitx", x))
+#define _(x) QString::fromUtf8(dgettext("fcitx-qt5", x))
 
 #endif // FCITX_QT5_GUIWRAPPER_COMMON_H
