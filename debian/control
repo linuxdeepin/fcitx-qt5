@@ -43,7 +43,7 @@ Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Breaks: fcitx-libs-qt5 (<< 1.0.0)
 Replaces: fcitx-libs-qt5 (<< 1.0.0)
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libfcitx-qt5-data
 Recommends: fcitx-frontend-qt5
 Description: Free Chinese Input Toy of X - D-Bus client libraries for Qt5
  Fcitx is the Free Chinese Input Toy of X, which was initially designed
@@ -85,12 +85,37 @@ Description: Free Chinese Input Toy of X - Devel files for libfcitx-qt5
  .
  This package provides the development files of fcitx-qt5.
 
-Package: fcitx-module-quickphrase-editor
+Package: libfcitx-qt5-data
+Architecture: all
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${misc:Depends}
+Multi-Arch: foreign
+Description: Free Chinese Input Toy of X - data files for Qt5 integration
+ Fcitx is the Free Chinese Input Toy of X, which was initially designed
+ for Chinese users, and used XIM protocol. Now it has already evolved
+ into a highly modularized, feature rich input method framework for
+ Unix-like platforms supporting a considerable amount of frontends,
+ backends and modules.
+ .
+ It offers a pleasant and modern experience, with intuitive graphical
+ configuration tools and customizable skins and mapping tables.
+ It is highly modularized and extensible,
+ with GTK+ 2/3 and Qt 4/5 IM Modules, support for UIs based on Fbterm,
+ pure Xlib, GTK+, or KDE, and a developer-friendly API.
+ .
+ This package contains data files for fcitx Qt5 integration library and
+ Qt5 frontend.
+
+Package: fcitx5-module-quickphrase-editor
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Replaces: fcitx (<< ${source:Upstream-Version})
-Breaks: fcitx (<< ${source:Upstream-Version})
+Depends: ${misc:Depends}, ${shlibs:Depends}, libfcitx-qt5-data
+Replaces:
+ fcitx-module-quickphrase-editor (<< 4.2.9.5~),
+Breaks:
+ fcitx-module-quickphrase-editor (<< 4.2.9.5~),
+Provides: fcitx-module-quickphrase-editor
 Suggests: fcitx-config-gtk | fcitx-config-gtk2 | kde-config-fcitx
+Multi-Arch: same
 Description: Flexible Input Method Framework - Quick Phrase editor module
  Fcitx is a input method framework with extension support, which provides
  an interface for entering characters of different scripts in applications

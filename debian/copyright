@@ -11,7 +11,7 @@ Copyright: 2013 YunQiang Su <wzssyqa@gmail.com>
            2013-2015 Aron Xu <aron@debian.org>
 License: GPL-2+
 
-Files: platforminputconttext/*
+Files: platforminputcontext/*
 Copyright: 2011-2017 Weng Xuetian (csslayer) <wengxt@gmail.com>
 License: BSD-3-Clause
 

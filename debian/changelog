@@ -6,8 +6,9 @@ fcitx-qt5 (1.2.1-1) unstable; urgency=medium
   * d/rules: Enable full hardening.
   * d/control: Add package fcitx-module-quickphrase-editor, migrated
     from src:fcitx.
+  * d/control: Add package libfcitx-qt5-data to provide l10n files.
 
- -- Boyuan Yang <073plan@gmail.com>  Mon, 01 Jan 2018 09:18:53 +0800
+ -- Boyuan Yang <073plan@gmail.com>  Mon, 01 Jan 2018 09:34:33 +0800
 
 fcitx-qt5 (1.1.1-1) unstable; urgency=medium
 
