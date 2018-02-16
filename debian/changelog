@@ -8,8 +8,9 @@ fcitx-qt5 (1.2.2-1) unstable; urgency=medium
   * d/control: Add package fcitx-module-quickphrase-editor, migrated
     from src:fcitx.
   * d/control: Add package libfcitx-qt5-data to provide l10n files.
+  * d/control: Use debian-input-method maillist in maintainer field.
 
- -- Boyuan Yang <073plan@gmail.com>  Wed, 31 Jan 2018 18:14:19 +0800
+ -- Boyuan Yang <073plan@gmail.com>  Fri, 16 Feb 2018 11:13:46 +0800
 
 fcitx-qt5 (1.1.1-1) unstable; urgency=medium
 
