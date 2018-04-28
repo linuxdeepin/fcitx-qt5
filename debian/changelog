@@ -1,3 +1,12 @@
+fcitx-qt5 (1.2.2-2) unstable; urgency=medium
+
+  * Team upload.
+  * Bump Standards-Version to 4.1.4. (no changes needed)
+  * d/patches: Backport upstream patch to fix FTBFS with Qt 5.11.
+  * d/control: Fix versioned break relationship for quickphrase editor.
+
+ -- Boyuan Yang <073plan@gmail.com>  Sat, 28 Apr 2018 11:08:45 +0800
+
 fcitx-qt5 (1.2.2-1) unstable; urgency=medium
 
   * Team upload.
