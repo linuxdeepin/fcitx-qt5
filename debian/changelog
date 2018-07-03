@@ -1,3 +1,14 @@
+fcitx-qt5 (1.2.3-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+    + Fix FTBFS with Qt 5.11.
+  * Apply "wrap-and-sort -abst".
+  * debian/control: Update YunQiang Su's email address with @debian.org one.
+  * Drop backported patches.
+
+ -- Boyuan Yang <073plan@gmail.com>  Tue, 03 Jul 2018 11:18:04 +0800
+
 fcitx-qt5 (1.2.2-2) unstable; urgency=medium
 
   * Team upload.
