@@ -1,6 +1,6 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: fcitx-qt5
-Source: https://github.com/fcitx/fcitx-qt5
+Source: https://gitlab.com/fcitx/fcitx-qt5
 
 Files: *
 Copyright: 2012-2015 Weng Xuetian (csslayer) <wengxt@gmail.com>
