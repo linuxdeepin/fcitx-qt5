@@ -74,6 +74,8 @@ libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"FcitxQtKeyboardProxy::~FcitxQtKeyboardProxy()@Base" 1.0.0
  (c++)"QByteArray::~QByteArray()@Base" 1.0.0
  (c++)"QString::~QString()@Base" 1.0.0
+ (c++)"FcitxQtInputMethodProxy::CreateICv2(QString const&, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 1.2.3
+ (c++)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int, bool&, unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 1.2.3
  (c++)"operator<<(QDBusArgument&, FcitxQtFormattedPreedit const&)@Base" 1.0.0
  (c++)"operator<<(QDBusArgument&, FcitxQtInputMethodItem const&)@Base" 1.0.0
  (c++)"operator<<(QDBusArgument&, FcitxQtKeyboardLayout const&)@Base" 1.0.0

@@ -8,8 +8,9 @@ fcitx-qt5 (1.2.3-3) unstable; urgency=medium
     + No longer let fcitx5-module-quickphrase-editor provide
       fcitx-module-quickphrase-editor since the new fcitx is
       declaring "Breaks:" relationship on the latter one.
+  * debian/libfcitx-qt5-1.symbols: Add new symbols.
 
- -- Boyuan Yang <byang@debian.org>  Mon, 23 Sep 2019 18:23:00 -0400
+ -- Boyuan Yang <byang@debian.org>  Mon, 23 Sep 2019 18:30:02 -0400
 
 fcitx-qt5 (1.2.3-2) unstable; urgency=medium
 
