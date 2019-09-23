@@ -7,14 +7,14 @@ Uploaders:
  YunQiang Su <syq@debian.org>,
 Build-Depends:
  cmake (>= 3.1),
- debhelper (>= 11~),
+ debhelper-compat (= 12),
  extra-cmake-modules (>= 1.4.0),
  fcitx-libs-dev (>= 1:4.2.8),
  intltool,
  pkg-config,
  qtbase5-dev,
  qtbase5-private-dev,
-Standards-Version: 4.2.1
+Standards-Version: 4.4.0
 Homepage: https://www.fcitx-im.org
 Vcs-Git: https://salsa.debian.org/input-method-team/fcitx-qt5.git
 Vcs-Browser: https://salsa.debian.org/input-method-team/fcitx-qt5
@@ -54,8 +54,6 @@ Replaces:
  fcitx-module-quickphrase-editor (<< 1:4.2.9.5~),
 Breaks:
  fcitx-module-quickphrase-editor (<< 1:4.2.9.5~),
-Provides:
- fcitx-module-quickphrase-editor,
 Suggests:
  fcitx-config-gtk | fcitx-config-gtk2 | kde-config-fcitx,
 Multi-Arch: same
