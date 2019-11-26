@@ -1,4 +1,4 @@
 version=4
-opts="" \
+opts="pgpmode=auto" \
  https://download.fcitx-im.org/fcitx-qt5/ \
  fcitx-qt5-?(\d[\d.]*)@ARCHIVE_EXT@ debian uupdate
