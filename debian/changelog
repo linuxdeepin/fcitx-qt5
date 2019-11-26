@@ -1,3 +1,12 @@
+fcitx-qt5 (1.2.4-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release 1.2.4.
+  * debian/control:
+    + Bump Standards-Version to 4.4.1.
+
+ -- Boyuan Yang <byang@debian.org>  Tue, 26 Nov 2019 14:44:13 -0500
+
 fcitx-qt5 (1.2.3-3) unstable; urgency=medium
 
   * Team upload.
