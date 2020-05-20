@@ -1,0 +1,22 @@
+deepin-fix-can-be-activated-in-no-input-window.patch
+Description: Fix the bug that fcitx can switch between Chinese and English when there is no input window.
+Bug: https://pms.uniontech.com/zentao/task-view-21565.html
+Author:niqiang
+Reviewed-By: huxiaodong
+Last-Update: 2020-05-20
+
+Index: fcitx-qt5-1.2.3.1/platforminputcontext/qfcitxplatforminputcontext.cpp
+===================================================================
+--- fcitx-qt5-1.2.3.1.orig/platforminputcontext/qfcitxplatforminputcontext.cpp
++++ fcitx-qt5-1.2.3.1/platforminputcontext/qfcitxplatforminputcontext.cpp
+@@ -277,7 +277,9 @@ void QFcitxPlatformInputContext::setFocu
+     QWindow *window = qApp->focusWindow();
+     m_lastWindow = window;
+     m_lastObject = object;
+-    if (!window) {
++    if (!window || (!inputMethodAccepted() && !objectAcceptsInputMethod())) {
++        m_lastWindow = nullptr;
++        m_lastObject = nullptr;
+         return;
+     }
+     proxy = validICByWindow(window);
