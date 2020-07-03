@@ -1,3 +1,17 @@
+fcitx-qt5 (1.2.4+git20200609-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream snapshot (2020-06-09).
+    + Compatible with kcm-fcitx 0.5.6.
+  * debian/control:
+    + Bump Standards-Version to 4.5.0.
+    + Bump debhelper compat to v13.
+  * debian/upstream/signing-key.asc: Since we are using snapshot
+    tarball, disable key signing check for now. This should be
+    reverted with next upload.
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 03 Jul 2020 11:00:03 -0400
+
 fcitx-qt5 (1.2.4-1) unstable; urgency=medium
 
   * Team upload.

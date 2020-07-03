@@ -3,7 +3,7 @@
 
 # see FEATURE AREAS in dpkg-buildflags(1)
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
-export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+export DEB_LDFLAGS_MAINT_APPEND =
 export QT_SELECT := 5
 
 DPKG_EXPORT_BUILDFLAGS = 1
@@ -13,6 +13,3 @@ CXXFLAGS += $(CPPFLAGS)
 
 %:
 	dh $@
-
-override_dh_missing:
-	 dh_missing --fail-missing
