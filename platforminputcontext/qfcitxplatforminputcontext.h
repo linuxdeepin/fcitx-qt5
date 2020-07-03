@@ -1,22 +1,22 @@
 /*
-* Copyright (C) 2011~2017 by CSSlayer
-* wengxt@gmail.com
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions
-* are met:
-*
-* 1. Redistributions of source code must retain the above Copyright
-*    notice, this list of conditions and the following disclaimer.
-*
-* 2. Redistributions in binary form must reproduce the above Copyright
-*    notice, this list of conditions and the following disclaimer in the
-*    documentation and/or other materials provided with the distribution.
-*
-* 3. Neither the name of the authors nor the names of its contributors
-*    may be used to endorse or promote products derived from this
-*    software without specific prior written permission.
-*/
+ * Copyright (C) 2011~2017 by CSSlayer
+ * wengxt@gmail.com
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above Copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above Copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the authors nor the names of its contributors
+ *    may be used to endorse or promote products derived from this
+ *    software without specific prior written permission.
+ */
 
 #ifndef QFCITXPLATFORMINPUTCONTEXT_H
 #define QFCITXPLATFORMINPUTCONTEXT_H
@@ -34,6 +34,7 @@
 #include <qpa/qplatforminputcontext.h>
 #include <unordered_map>
 #include <xkbcommon/xkbcommon-compose.h>
+#include <memory>
 
 class QFileSystemWatcher;
 enum FcitxKeyEventType { FCITX_PRESS_KEY, FCITX_RELEASE_KEY };
@@ -92,7 +93,7 @@ enum FcitxKeyState {
 
 struct FcitxQtICData {
     FcitxQtICData(FcitxWatcher *watcher)
-        : capability(0), proxy(new FcitxInputContextProxy(watcher, watcher)),
+        : proxy(new FcitxInputContextProxy(watcher, watcher)),
           surroundingAnchor(-1), surroundingCursor(-1) {}
     FcitxQtICData(const FcitxQtICData &that) = delete;
     ~FcitxQtICData() {
@@ -103,6 +104,8 @@ struct FcitxQtICData {
     QFlags<FcitxCapabilityFlags> capability;
     FcitxInputContextProxy *proxy;
     QRect rect;
+    // Last key event forwarded.
+    std::unique_ptr<QKeyEvent> event;
     QString surroundingText;
     int surroundingAnchor;
     int surroundingCursor;
@@ -185,7 +188,9 @@ public Q_SLOTS:
 
 private:
     bool processCompose(uint keyval, uint state, bool isRelaese);
-    QKeyEvent *createKeyEvent(uint keyval, uint state, bool isRelaese);
+    QKeyEvent *createKeyEvent(uint keyval, uint state, bool isRelaese,
+                              const QKeyEvent *event);
+    void forwardEvent(QWindow *window, const QKeyEvent &event);
 
     void addCapability(FcitxQtICData &data,
                        QFlags<FcitxCapabilityFlags> capability,
