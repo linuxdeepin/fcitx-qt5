@@ -1,2 +1,3 @@
 #deepin
 deepin-fix-can-be-activated-in-no-input-window.patch
+input-characters-out-of-order.patch

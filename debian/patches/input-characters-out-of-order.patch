@@ -1,0 +1,16 @@
+Index: fcitx-qt5/platforminputcontext/qfcitxplatforminputcontext.cpp
+===================================================================
+--- fcitx-qt5.orig/platforminputcontext/qfcitxplatforminputcontext.cpp
++++ fcitx-qt5/platforminputcontext/qfcitxplatforminputcontext.cpp
+@@ -670,8 +670,9 @@ bool QFcitxPlatformInputContext::filterE
+         } else {
+             ProcessKeyWatcher *watcher = new ProcessKeyWatcher(
+                 *keyEvent, qApp->focusWindow(), reply, proxy);
+-            connect(watcher, &QDBusPendingCallWatcher::finished, this,
+-                    &QFcitxPlatformInputContext::processKeyEventFinished);
++            processKeyEventFinished(watcher);
++            //connect(watcher, &QDBusPendingCallWatcher::finished, this,
++            //        &QFcitxPlatformInputContext::processKeyEventFinished);
+             return true;
+         }
+     } while (0);
