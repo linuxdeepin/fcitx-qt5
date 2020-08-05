@@ -1,3 +1,10 @@
+fcitx-qt5 (1.2.5-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+
+ -- Boyuan Yang <byang@debian.org>  Wed, 05 Aug 2020 14:10:03 -0400
+
 fcitx-qt5 (1.2.4+git20200609-1) unstable; urgency=medium
 
   * Team upload.
