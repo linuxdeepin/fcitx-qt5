@@ -76,7 +76,7 @@ libFcitxQt5DBusAddons.so.1 libfcitx-qt5-1 #MINVER#
  (c++)"QString::~QString()@Base" 1.0.0
  (c++)"FcitxQtKeyboardProxy::GetLayoutForIM(QString const&, QString&)@Base" 1.2.5
  (c++)"FcitxQtInputMethodProxy::CreateICv3(QString const&, int)@Base" 1.2.5
- (c++)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)" 1.2.5
+ (c++)"FcitxQtInputMethodProxy::CreateIC(unsigned int&, unsigned int&, unsigned int&, unsigned int&)@Base" 1.2.5
  (c++)"FcitxQtInputContextProxy::SetCursorRect(int, int, int, int)@Base" 1.2.5
  (c++)"FcitxQtInputContextProxy::ProcessKeyEvent(unsigned int, unsigned int, unsigned int, int, unsigned int)@Base" 1.2.5
  (c++)"FcitxQtInputContextProxy::SetSurroundingText(QString const&, unsigned int, unsigned int)@Base" 1.2.5
