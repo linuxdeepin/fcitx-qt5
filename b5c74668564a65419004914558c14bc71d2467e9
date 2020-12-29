@@ -1,0 +1,123 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "541a0cc3_51128696",
+        "filename": "dbusaddons/fcitxqtformattedpreedit.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 2; 注释率: 0.0%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1f046ce8_b2193596",
+        "filename": "platforminputcontext/fcitxinputcontextproxy.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 21; 注释率: 0.0%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1615e7a2_183af8be",
+        "filename": "platforminputcontext/fcitxinputcontextproxy.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 18; 注释率: 0.0%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "eafe7213_b39f1d8e",
+        "filename": "platforminputcontext/fcitxqtdbustypes.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 20; 注释率: 0.0%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "1382f2a6_cb8e4f5c",
+        "filename": "platforminputcontext/fcitxqtdbustypes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 18; 注释率: 0.0%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d9166dff_c81312d5",
+        "filename": "platforminputcontext/fcitxwatcher.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 18; 注释率: 0.0%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "b93f5eb8_09e6eedf",
+        "filename": "platforminputcontext/fcitxwatcher.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2020-12-29T15:33:13Z",
+      "side": 1,
+      "message": "注释行数: 9; 改动行数(修改和新增): 164; 注释率: 5.5%",
+      "revId": "b5c74668564a65419004914558c14bc71d2467e9",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
