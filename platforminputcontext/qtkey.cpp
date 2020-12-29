@@ -1,22 +1,22 @@
 /*
-* Copyright (C) 2017~2017 by CSSlayer
-* wengxt@gmail.com
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions
-* are met:
-*
-* 1. Redistributions of source code must retain the above Copyright
-*    notice, this list of conditions and the following disclaimer.
-*
-* 2. Redistributions in binary form must reproduce the above Copyright
-*    notice, this list of conditions and the following disclaimer in the
-*    documentation and/or other materials provided with the distribution.
-*
-* 3. Neither the name of the authors nor the names of its contributors
-*    may be used to endorse or promote products derived from this
-*    software without specific prior written permission.
-*/
+ * Copyright (C) 2017~2017 by CSSlayer
+ * wengxt@gmail.com
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above Copyright
+ *    notice, this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above Copyright
+ *    notice, this list of conditions and the following disclaimer in the
+ *    documentation and/or other materials provided with the distribution.
+ *
+ * 3. Neither the name of the authors nor the names of its contributors
+ *    may be used to endorse or promote products derived from this
+ *    software without specific prior written permission.
+ */
 
 #include "qtkey.h"
 
@@ -74,10 +74,14 @@ const std::unordered_map<uint32_t, int> &KeyTbl() {
         std::make_pair(XK_Return, Qt::Key_Return),
         std::make_pair(XK_KP_Enter, Qt::Key_Enter),
         std::make_pair(XK_Insert, Qt::Key_Insert),
+        std::make_pair(XK_Delete, Qt::Key_Delete),
+        std::make_pair(XK_Clear, Qt::Key_Delete),
         std::make_pair(XK_Pause, Qt::Key_Pause),
         std::make_pair(XK_Print, Qt::Key_Print),
         std::make_pair(XK_Sys_Req, Qt::Key_SysReq),
-        std::make_pair(XK_Clear, Qt::Key_Clear),
+        std::make_pair(0x1005FF60, Qt::Key_SysReq),
+        std::make_pair(0x1007ff00, Qt::Key_SysReq),
+
         std::make_pair(XK_Home, Qt::Key_Home),
         std::make_pair(XK_End, Qt::Key_End),
         std::make_pair(XK_Left, Qt::Key_Left),
@@ -88,6 +92,7 @@ const std::unordered_map<uint32_t, int> &KeyTbl() {
         std::make_pair(XK_Page_Down, Qt::Key_PageDown),
         std::make_pair(XK_Shift_L, Qt::Key_Shift),
         std::make_pair(XK_Shift_R, Qt::Key_Shift),
+        std::make_pair(XK_Shift_Lock, Qt::Key_Shift),
         std::make_pair(XK_Control_L, Qt::Key_Control),
         std::make_pair(XK_Control_R, Qt::Key_Control),
         std::make_pair(XK_Meta_L, Qt::Key_Meta),
