@@ -1,3 +1,13 @@
+fcitx-qt5 (1.2.5-2~exp1) experimental; urgency=medium
+
+  * Team upload.
+  * debian/control: Rename package fcitx5-module-quickphrase-editor
+    back to fcitx-module-quickphrase-editor. The current design has
+    made it incompatible with fcitx5. (Closes: #964189)
+  * debian/control: Bump Standards-Version to 4.5.1.
+
+ -- Boyuan Yang <byang@debian.org>  Fri, 22 Jan 2021 16:01:45 -0500
+
 fcitx-qt5 (1.2.5-1) unstable; urgency=medium
 
   * Team upload.
