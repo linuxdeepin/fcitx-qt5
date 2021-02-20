@@ -37,8 +37,6 @@
 #include "fcitxwatcher.h"
 #include "qfcitxplatforminputcontext.h"
 
-static bool key_filtered = false;
-
 static bool get_boolean_env(const char *name, bool defval) {
     const char *value = getenv(name);
 
@@ -87,8 +85,11 @@ struct xkb_context *_xkb_context_new_helper() {
 }
 
 QFcitxPlatformInputContext::QFcitxPlatformInputContext()
-    : m_watcher(new FcitxWatcher(this)), m_cursorPos(0),
-      m_useSurroundingText(false),
+    : m_watcher(new FcitxWatcher(
+          QDBusConnection::connectToBus(QDBusConnection::SessionBus,
+                                        "fcitx-platform-input-context"),
+          this)),
+      m_cursorPos(0), m_useSurroundingText(false),
       m_syncMode(get_boolean_env("FCITX_QT_USE_SYNC", false)), m_destroy(false),
       m_xkbContext(_xkb_context_new_helper()),
       m_xkbComposeTable(m_xkbContext ? xkb_compose_table_new_from_locale(
@@ -258,7 +259,7 @@ void QFcitxPlatformInputContext::update(Qt::InputMethodQueries queries) {
         if (!setSurrounding) {
             data.surroundingAnchor = -1;
             data.surroundingCursor = -1;
-            data.surroundingText = QString::null;
+            data.surroundingText = QString();
             removeCapability(data, CAPACITY_SURROUNDING_TEXT);
         }
     } while (0);
@@ -277,14 +278,34 @@ void QFcitxPlatformInputContext::setFocusObject(QObject *object) {
     QWindow *window = qApp->focusWindow();
     m_lastWindow = window;
     m_lastObject = object;
-    if (!window) {
+    // Always create IC Data for window.
+    if (window) {
+        proxy = validICByWindow(window);
+        if (!proxy) {
+            createICData(window);
+        }
+    }
+    if (!window || (!inputMethodAccepted() && !objectAcceptsInputMethod())) {
+        m_lastWindow = nullptr;
+        m_lastObject = nullptr;
         return;
     }
-    proxy = validICByWindow(window);
-    if (proxy)
+    if (proxy) {
         proxy->focusIn();
-    else {
-        createICData(window);
+        // We need to delegate this otherwise it may cause self-recursion in
+        // certain application like libreoffice.
+        auto window = m_lastWindow;
+        QMetaObject::invokeMethod(
+            this,
+            [this, window]() {
+                if (window != m_lastWindow) {
+                    return;
+                }
+                if (auto *proxy = validICByWindow(window.data())) {
+                    cursorRectChanged();
+                }
+            },
+            Qt::QueuedConnection);
     }
 }
 
@@ -314,6 +335,15 @@ void QFcitxPlatformInputContext::cursorRectChanged() {
         return;
     }
 
+    if (data.capability & CAPACITY_RELATIVE_CURSOR_RECT) {
+        auto margins = inputWindow->frameMargins();
+        r.translate(margins.left(), margins.top());
+        if (data.rect != r) {
+            data.rect = r;
+            proxy->setCursorRect(r.x(), r.y(), r.width(), r.height());
+        }
+        return;
+    }
     qreal scale = inputWindow->devicePixelRatio();
     auto screenGeometry = inputWindow->screen()->geometry();
     auto point = inputWindow->mapToGlobal(r.topLeft());
@@ -334,17 +364,17 @@ void QFcitxPlatformInputContext::createInputContextFinished() {
     if (!proxy) {
         return;
     }
-    auto w =
-        reinterpret_cast<QWindow *>(proxy->property("wid").value<void *>());
+    auto w = static_cast<QWindow *>(proxy->property("wid").value<void *>());
     FcitxQtICData *data =
         static_cast<FcitxQtICData *>(proxy->property("icData").value<void *>());
     data->rect = QRect();
 
     if (proxy->isValid()) {
         QWindow *window = qApp->focusWindow();
-        if (window && window == w) {
-            proxy->focusIn();
+        if (window && window == w && inputMethodAccepted() &&
+            objectAcceptsInputMethod()) {
             cursorRectChanged();
+            proxy->focusIn();
         }
     }
 
@@ -355,8 +385,9 @@ void QFcitxPlatformInputContext::createInputContextFinished() {
     flag |= CAPACITY_GET_IM_INFO_ON_FOCUS;
     m_useSurroundingText =
         get_boolean_env("FCITX_QT_ENABLE_SURROUNDING_TEXT", true);
-    if (m_useSurroundingText)
+    if (m_useSurroundingText) {
         flag |= CAPACITY_SURROUNDING_TEXT;
+    }
 
     if (qApp && qApp->platformName() == "wayland") {
         flag |= CAPACITY_RELATIVE_CURSOR_RECT;
@@ -515,14 +546,20 @@ void QFcitxPlatformInputContext::deleteSurroundingText(int offset,
 
 void QFcitxPlatformInputContext::forwardKey(uint keyval, uint state,
                                             bool type) {
+    auto proxy = qobject_cast<FcitxInputContextProxy *>(sender());
+    if (!proxy) {
+        return;
+    }
+    FcitxQtICData &data = *static_cast<FcitxQtICData *>(
+        proxy->property("icData").value<void *>());
+    auto w = static_cast<QWindow *>(proxy->property("wid").value<void *>());
     QObject *input = qApp->focusObject();
-    if (input != nullptr) {
-        key_filtered = true;
-        QKeyEvent *keyevent = createKeyEvent(keyval, state, type);
+    auto window = qApp->focusWindow();
+    if (input && window && w == window) {
+        std::unique_ptr<QKeyEvent> keyevent{
+            createKeyEvent(keyval, state, type, data.event.get())};
 
-        QCoreApplication::sendEvent(input, keyevent);
-        delete keyevent;
-        key_filtered = false;
+        forwardEvent(window, *keyevent);
     }
 }
 
@@ -558,9 +595,9 @@ void QFcitxPlatformInputContext::createICData(QWindow *w) {
             data.proxy->setDisplay("wayland:");
         }
         data.proxy->setProperty("wid",
-                                qVariantFromValue(static_cast<void *>(w)));
-        data.proxy->setProperty("icData",
-                                qVariantFromValue(static_cast<void *>(&data)));
+                                QVariant::fromValue(static_cast<void *>(w)));
+        data.proxy->setProperty(
+            "icData", QVariant::fromValue(static_cast<void *>(&data)));
         connect(data.proxy, &FcitxInputContextProxy::inputContextCreated, this,
                 &QFcitxPlatformInputContext::createInputContextFinished);
         connect(data.proxy, &FcitxInputContextProxy::commitString, this,
@@ -577,38 +614,76 @@ void QFcitxPlatformInputContext::createICData(QWindow *w) {
 }
 
 QKeyEvent *QFcitxPlatformInputContext::createKeyEvent(uint keyval, uint state,
-                                                      bool isRelease) {
-    Qt::KeyboardModifiers qstate = Qt::NoModifier;
+                                                      bool isRelease,
+                                                      const QKeyEvent *event) {
+    QKeyEvent *newEvent = nullptr;
+    if (event && event->nativeVirtualKey() == keyval &&
+        event->nativeModifiers() == state &&
+        isRelease == (event->type() == QEvent::KeyRelease)) {
+        newEvent = new QKeyEvent(*event);
+    } else {
+        Qt::KeyboardModifiers qstate = Qt::NoModifier;
 
-    int count = 1;
-    if (state & FcitxKeyState_Alt) {
-        qstate |= Qt::AltModifier;
-        count++;
+        int count = 1;
+        if (state & FcitxKeyState_Alt) {
+            qstate |= Qt::AltModifier;
+            count++;
+        }
+
+        if (state & FcitxKeyState_Shift) {
+            qstate |= Qt::ShiftModifier;
+            count++;
+        }
+
+        if (state & FcitxKeyState_Ctrl) {
+            qstate |= Qt::ControlModifier;
+            count++;
+        }
+
+        auto unicode = xkb_keysym_to_utf32(keyval);
+        QString text;
+        if (unicode) {
+            text = QString::fromUcs4(&unicode, 1);
+        }
+
+        int key = keysymToQtKey(keyval, text);
+
+        newEvent =
+            new QKeyEvent(isRelease ? (QEvent::KeyRelease) : (QEvent::KeyPress),
+                          key, qstate, 0, keyval, state, text, false, count);
+        if (event) {
+            newEvent->setTimestamp(event->timestamp());
+        }
     }
 
-    if (state & FcitxKeyState_Shift) {
-        qstate |= Qt::ShiftModifier;
-        count++;
+    return newEvent;
+}
+
+void QFcitxPlatformInputContext::forwardEvent(QWindow *window,
+                                              const QKeyEvent &keyEvent) {
+    // use same variable name as in QXcbKeyboard::handleKeyEvent
+    QEvent::Type type = keyEvent.type();
+    int qtcode = keyEvent.key();
+    Qt::KeyboardModifiers modifiers = keyEvent.modifiers();
+    quint32 code = keyEvent.nativeScanCode();
+    quint32 sym = keyEvent.nativeVirtualKey();
+    quint32 state = keyEvent.nativeModifiers();
+    QString string = keyEvent.text();
+    bool isAutoRepeat = keyEvent.isAutoRepeat();
+    ulong time = keyEvent.timestamp();
+    // copied from QXcbKeyboard::handleKeyEvent()
+    if (type == QEvent::KeyPress && qtcode == Qt::Key_Menu) {
+        QPoint globalPos, pos;
+        if (window->screen()) {
+            globalPos = window->screen()->handle()->cursor()->pos();
+            pos = window->mapFromGlobal(globalPos);
+        }
+        QWindowSystemInterface::handleContextMenuEvent(window, false, pos,
+                                                       globalPos, modifiers);
     }
-
-    if (state & FcitxKeyState_Ctrl) {
-        qstate |= Qt::ControlModifier;
-        count++;
-    }
-
-    auto unicode = xkb_keysym_to_utf32(keyval);
-    QString text;
-    if (unicode) {
-        text = QString::fromUcs4(&unicode, 1);
-    }
-
-    int key = keysymToQtKey(keyval, text);
-
-    QKeyEvent *keyevent =
-        new QKeyEvent(isRelease ? (QEvent::KeyRelease) : (QEvent::KeyPress),
-                      key, qstate, 0, keyval, state, text, false, count);
-
-    return keyevent;
+    QWindowSystemInterface::handleExtendedKeyEvent(window, time, type, qtcode,
+                                                   modifiers, code, sym, state,
+                                                   string, isAutoRepeat);
 }
 
 bool QFcitxPlatformInputContext::filterEvent(const QEvent *event) {
@@ -623,10 +698,6 @@ bool QFcitxPlatformInputContext::filterEvent(const QEvent *event) {
         quint32 keycode = keyEvent->nativeScanCode();
         quint32 state = keyEvent->nativeModifiers();
         bool isRelease = keyEvent->type() == QEvent::KeyRelease;
-
-        if (key_filtered) {
-            break;
-        }
 
         if (!inputMethodAccepted() && !objectAcceptsInputMethod())
             break;
@@ -695,14 +766,10 @@ void QFcitxPlatformInputContext::processKeyEventFinished(
 
     // use same variable name as in QXcbKeyboard::handleKeyEvent
     QEvent::Type type = keyEvent.type();
-    int qtcode = keyEvent.key();
-    Qt::KeyboardModifiers modifiers = keyEvent.modifiers();
     quint32 code = keyEvent.nativeScanCode();
     quint32 sym = keyEvent.nativeVirtualKey();
     quint32 state = keyEvent.nativeModifiers();
     QString string = keyEvent.text();
-    bool isAutoRepeat = keyEvent.isAutoRepeat();
-    ulong time = keyEvent.timestamp();
 
     if (!proxy->processKeyEventResult(*watcher)) {
         filtered =
@@ -716,19 +783,14 @@ void QFcitxPlatformInputContext::processKeyEventFinished(
     }
 
     if (!filtered) {
-        // copied from QXcbKeyboard::handleKeyEvent()
-        if (type == QEvent::KeyPress && qtcode == Qt::Key_Menu) {
-            QPoint globalPos, pos;
-            if (window->screen()) {
-                globalPos = window->screen()->handle()->cursor()->pos();
-                pos = window->mapFromGlobal(globalPos);
-            }
-            QWindowSystemInterface::handleContextMenuEvent(
-                window, false, pos, globalPos, modifiers);
+        forwardEvent(window, keyEvent);
+    } else {
+        auto proxy = qobject_cast<FcitxInputContextProxy *>(watcher->parent());
+        if (proxy) {
+            FcitxQtICData &data = *static_cast<FcitxQtICData *>(
+                proxy->property("icData").value<void *>());
+            data.event.reset(new QKeyEvent(keyEvent));
         }
-        QWindowSystemInterface::handleExtendedKeyEvent(
-            window, time, type, qtcode, modifiers, code, sym, state, string,
-            isAutoRepeat);
     }
 
     delete watcher;
