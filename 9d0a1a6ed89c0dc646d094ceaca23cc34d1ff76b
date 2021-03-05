@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "6c2898f1_8e446669",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-05T04:31:50Z",
+      "side": 1,
+      "message": "标题不存在或者名称错误, 模块名推荐使用fix|feat|chore|docs|style|refactor|perf|test|abigail 例fix: xxxxx",
+      "revId": "9d0a1a6ed89c0dc646d094ceaca23cc34d1ff76b",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "201a99eb_ea8d335b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2021-03-05T04:31:50Z",
+      "side": 1,
+      "message": "缺少Log信息",
+      "revId": "9d0a1a6ed89c0dc646d094ceaca23cc34d1ff76b",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "14834cf0_845c01c5",
         "filename": "platforminputcontext/fcitxinputcontextproxy.cpp",
         "patchSetId": 1
