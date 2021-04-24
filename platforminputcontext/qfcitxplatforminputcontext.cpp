@@ -291,8 +291,21 @@ void QFcitxPlatformInputContext::setFocusObject(QObject *object) {
         return;
     }
     if (proxy) {
-        cursorRectChanged();
         proxy->focusIn();
+        // We need to delegate this otherwise it may cause self-recursion in
+        // certain application like libreoffice.
+        auto window = m_lastWindow;
+        QMetaObject::invokeMethod(
+            this,
+            [this, window]() {
+                if (window != m_lastWindow) {
+                    return;
+                }
+                if (validICByWindow(window.data())) {
+                    cursorRectChanged();
+                }
+            },
+            Qt::QueuedConnection);
     }
 }
 
@@ -507,7 +520,7 @@ void QFcitxPlatformInputContext::deleteSurroundingText(int offset,
 
     // validates
     if (nchar >= 0 && cursor + offset >= 0 &&
-        cursor + offset + nchar < ucsText.size()) {
+        cursor + offset + nchar <= ucsText.size()) {
         // order matters
         QVector<uint> replacedChars = ucsText.mid(cursor + offset, nchar);
         nchar = QString::fromUcs4(replacedChars.data(), replacedChars.size())
@@ -518,7 +531,7 @@ void QFcitxPlatformInputContext::deleteSurroundingText(int offset,
             start = cursor;
             len = offset;
         } else {
-            start = cursor;
+            start = cursor + offset;
             len = -offset;
         }
 
