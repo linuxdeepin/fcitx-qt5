@@ -25,8 +25,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
 set(CMAKE_CXX_STANDARD 17)
 
-set(CMAKE_C_FLAGS "-Wall -Wextra ${CMAKE_C_FLAGS}")
-set(CMAKE_CXX_FLAGS "-Wall -Wextra ${CMAKE_CXX_FLAGS}")
+set(CMAKE_C_FLAGS "-Wall -Wextra ${CMAKE_C_FLAGS} -g -fsanitize=undefined,address -O2 ")
+set(CMAKE_CXX_FLAGS "-Wall -Wextra ${CMAKE_CXX_FLAGS} -g -fsanitize=undefined,address -O2 ")
 set(CMAKE_SHARED_LINKER_FLAGS "-Wl,--no-undefined -Wl,--as-needed ${CMAKE_SHARED_LINKER_FLAGS}")
 set(CMAKE_MODULE_LINKER_FLAGS "-Wl,--no-undefined -Wl,--as-needed ${CMAKE_MODULE_LINKER_FLAGS}")
 
