@@ -66,7 +66,12 @@ QString socketFile() {
 
     QString home = QString::fromLocal8Bit(qgetenv("XDG_CONFIG_HOME"));
     if (home.isEmpty()) {
-        home = QDir::homePath().append(QLatin1String("/.config"));
+        uid_t uid = getuid();
+
+        if (uid == 0) {
+            home = QDir::homePath().append(QLatin1String("/root/.config"));
+        }
+        //home = QDir::homePath().append(QLatin1String("/.config"));
     }
     return QString("%1/fcitx/dbus/%2").arg(home).arg(filename);
 }
