@@ -20,6 +20,7 @@
 
 #include <QDBusConnection>
 #include <QDebug>
+#include <QProcess>
 #include <QGuiApplication>
 #include <QInputMethod>
 #include <QKeyEvent>
@@ -121,6 +122,7 @@ bool QFcitxPlatformInputContext::isValid() const { return true; }
 
 void QFcitxPlatformInputContext::invokeAction(QInputMethod::Action action,
                                               int cursorPosition) {
+    qDebug()<<Q_FUNC_INFO;
     if (action == QInputMethod::Click &&
         (cursorPosition <= 0 || cursorPosition >= m_preedit.length())) {
         // qDebug() << action << cursorPosition;
@@ -129,6 +131,7 @@ void QFcitxPlatformInputContext::invokeAction(QInputMethod::Action action,
 }
 
 void QFcitxPlatformInputContext::commitPreedit(QPointer<QObject> input) {
+    qDebug()<<Q_FUNC_INFO;
     if (!input)
         return;
     if (m_commitPreedit.length() <= 0)
@@ -146,6 +149,7 @@ bool checkUtf8(const QByteArray &byteArray) {
 }
 
 void QFcitxPlatformInputContext::reset() {
+    qDebug()<<Q_FUNC_INFO;
     commitPreedit();
     if (FcitxInputContextProxy *proxy = validIC()) {
         proxy->reset();
@@ -157,6 +161,7 @@ void QFcitxPlatformInputContext::reset() {
 }
 
 void QFcitxPlatformInputContext::update(Qt::InputMethodQueries queries) {
+    qDebug()<<Q_FUNC_INFO;
     // ignore the boring query
     if (!(queries & (Qt::ImCursorRectangle | Qt::ImHints |
                      Qt::ImSurroundingText | Qt::ImCursorPosition))) {
@@ -174,6 +179,9 @@ void QFcitxPlatformInputContext::update(Qt::InputMethodQueries queries) {
     QObject *input = qApp->focusObject();
     if (!input)
         return;
+
+    qDebug()<<"add event fileter"<<input;
+    input->installEventFilter(this);
 
     QInputMethodQueryEvent query(queries);
     QGuiApplication::sendEvent(input, &query);
@@ -261,9 +269,10 @@ void QFcitxPlatformInputContext::update(Qt::InputMethodQueries queries) {
     } while (0);
 }
 
-void QFcitxPlatformInputContext::commit() { QPlatformInputContext::commit(); }
+void QFcitxPlatformInputContext::commit() { qDebug()<<Q_FUNC_INFO; QPlatformInputContext::commit(); }
 
 void QFcitxPlatformInputContext::setFocusObject(QObject *object) {
+    qDebug()<<Q_FUNC_INFO;
     Q_UNUSED(object);
     FcitxInputContextProxy *proxy = validICByWindow(m_lastWindow);
     commitPreedit(m_lastObject);
@@ -306,12 +315,14 @@ void QFcitxPlatformInputContext::setFocusObject(QObject *object) {
 }
 
 void QFcitxPlatformInputContext::windowDestroyed(QObject *object) {
+    qDebug()<<Q_FUNC_INFO;
     /* access QWindow is not possible here, so we use our own map to do so */
     m_icMap.erase(reinterpret_cast<QWindow *>(object));
     // qDebug() << "Window Destroyed and we destroy IC correctly, horray!";
 }
 
 void QFcitxPlatformInputContext::cursorRectChanged() {
+    qDebug()<<Q_FUNC_INFO;
     QWindow *inputWindow = qApp->focusWindow();
     if (!inputWindow)
         return;
@@ -357,6 +368,7 @@ void QFcitxPlatformInputContext::cursorRectChanged() {
 }
 
 void QFcitxPlatformInputContext::createInputContextFinished() {
+    qDebug()<<Q_FUNC_INFO;
     FcitxInputContextProxy *proxy =
         qobject_cast<FcitxInputContextProxy *>(sender());
     if (!proxy) {
@@ -395,6 +407,7 @@ void QFcitxPlatformInputContext::createInputContextFinished() {
 }
 
 void QFcitxPlatformInputContext::updateCapability(const FcitxQtICData &data) {
+    qDebug()<<Q_FUNC_INFO;
     if (!data.proxy || !data.proxy->isValid())
         return;
 
@@ -403,6 +416,7 @@ void QFcitxPlatformInputContext::updateCapability(const FcitxQtICData &data) {
 }
 
 void QFcitxPlatformInputContext::commitString(const QString &str) {
+    qDebug()<<Q_FUNC_INFO;
     m_cursorPos = 0;
     m_preeditList.clear();
     m_commitPreedit.clear();
@@ -417,6 +431,7 @@ void QFcitxPlatformInputContext::commitString(const QString &str) {
 
 void QFcitxPlatformInputContext::updateFormattedPreedit(
     const FcitxFormattedPreeditList &preeditList, int cursorPos) {
+    qDebug()<<Q_FUNC_INFO;
     QObject *input = qApp->focusObject();
     if (!input)
         return;
@@ -485,6 +500,7 @@ void QFcitxPlatformInputContext::updateFormattedPreedit(
 
 void QFcitxPlatformInputContext::deleteSurroundingText(int offset,
                                                        uint _nchar) {
+    qDebug()<<Q_FUNC_INFO;
     QObject *input = qApp->focusObject();
     if (!input)
         return;
@@ -544,6 +560,7 @@ void QFcitxPlatformInputContext::deleteSurroundingText(int offset,
 
 void QFcitxPlatformInputContext::forwardKey(uint keyval, uint state,
                                             bool type) {
+    qDebug()<<Q_FUNC_INFO;
     auto proxy = qobject_cast<FcitxInputContextProxy *>(sender());
     if (!proxy) {
         return;
@@ -564,6 +581,7 @@ void QFcitxPlatformInputContext::forwardKey(uint keyval, uint state,
 void QFcitxPlatformInputContext::updateCurrentIM(const QString &name,
                                                  const QString &uniqueName,
                                                  const QString &langCode) {
+    qDebug()<<Q_FUNC_INFO;
     Q_UNUSED(name);
     Q_UNUSED(uniqueName);
     QLocale newLocale(langCode);
@@ -573,9 +591,38 @@ void QFcitxPlatformInputContext::updateCurrentIM(const QString &name,
     }
 }
 
-QLocale QFcitxPlatformInputContext::locale() const { return m_locale; }
+QLocale QFcitxPlatformInputContext::locale() const { qDebug()<<Q_FUNC_INFO; return m_locale; }
+
+bool QFcitxPlatformInputContext::eventFilter(QObject *obj, QEvent *e)
+{
+    if (e->type() != QEvent::Paint)
+        qDebug()<<Q_FUNC_INFO<<e->type();
+//    if (e->type() == QEvent::MouseButtonPress) {
+//        qDebug()<<"dbus call";
+//        QDBusMessage m = QDBusMessage::createMethodCall("com.deepin.im",
+//                                                        "/com/deepin/im",
+//                                                        "com.deepin.im",
+//                                                        "imActive");
+//        m << 1;
+//        QDBusConnection::sessionBus().call(m);
+
+////        QDBusMessage m = QDBusMessage::createMethodCall("com.deepin.dde.ControlCenter",
+////                                                        "/com/deepin/dde/ControlCenter",
+////                                                        "com.deepin.dde.ControlCenter",
+////                                                        "Show");
+//        QDBusConnection::sessionBus().call(m);
+//    }
+    if (e->type() == QEvent::MouseButtonPress || e->type() == QEvent::InputMethodQuery) {
+        qDebug()<<"dbus call";
+        QProcess process;
+        process.start("qdbus  com.deepin.im /com/deepin/im com.deepin.im.imActive true");
+        process.waitForFinished();
+    }
+    return QObject::eventFilter(obj, e);
+}
 
 void QFcitxPlatformInputContext::createICData(QWindow *w) {
+    qDebug()<<Q_FUNC_INFO;
     auto iter = m_icMap.find(w);
     if (iter == m_icMap.end()) {
         auto result =
@@ -614,6 +661,7 @@ void QFcitxPlatformInputContext::createICData(QWindow *w) {
 QKeyEvent *QFcitxPlatformInputContext::createKeyEvent(uint keyval, uint state,
                                                       bool isRelease,
                                                       const QKeyEvent *event) {
+    qDebug()<<Q_FUNC_INFO;
     QKeyEvent *newEvent = nullptr;
     if (event && event->nativeVirtualKey() == keyval &&
         event->nativeModifiers() == state &&
@@ -667,6 +715,7 @@ QKeyEvent *QFcitxPlatformInputContext::createKeyEvent(uint keyval, uint state,
 
 void QFcitxPlatformInputContext::forwardEvent(QWindow *window,
                                               const QKeyEvent &keyEvent) {
+    qDebug()<<Q_FUNC_INFO;
     // use same variable name as in QXcbKeyboard::handleKeyEvent
     QEvent::Type type = keyEvent.type();
     int qtcode = keyEvent.key();
@@ -693,6 +742,7 @@ void QFcitxPlatformInputContext::forwardEvent(QWindow *window,
 }
 
 bool QFcitxPlatformInputContext::filterEvent(const QEvent *event) {
+    qDebug()<<Q_FUNC_INFO;
     do {
         if (event->type() != QEvent::KeyPress &&
             event->type() != QEvent::KeyRelease) {
@@ -756,6 +806,7 @@ bool QFcitxPlatformInputContext::filterEvent(const QEvent *event) {
 
 void QFcitxPlatformInputContext::processKeyEventFinished(
     QDBusPendingCallWatcher *w) {
+    qDebug()<<Q_FUNC_INFO;
     ProcessKeyWatcher *watcher = static_cast<ProcessKeyWatcher *>(w);
     auto proxy = qobject_cast<FcitxInputContextProxy *>(watcher->parent());
     bool filtered = false;
@@ -812,6 +863,7 @@ void QFcitxPlatformInputContext::processKeyEventFinished(
 bool QFcitxPlatformInputContext::filterEventFallback(uint keyval, uint keycode,
                                                      uint state,
                                                      bool isRelease) {
+    qDebug()<<Q_FUNC_INFO;
     Q_UNUSED(keycode);
     if (processCompose(keyval, state, isRelease)) {
         return true;
@@ -820,6 +872,7 @@ bool QFcitxPlatformInputContext::filterEventFallback(uint keyval, uint keycode,
 }
 
 FcitxInputContextProxy *QFcitxPlatformInputContext::validIC() {
+    qDebug()<<Q_FUNC_INFO;
     if (m_icMap.empty()) {
         return nullptr;
     }
@@ -829,6 +882,7 @@ FcitxInputContextProxy *QFcitxPlatformInputContext::validIC() {
 
 FcitxInputContextProxy *
 QFcitxPlatformInputContext::validICByWindow(QWindow *w) {
+    qDebug()<<Q_FUNC_INFO;
     if (!w) {
         return nullptr;
     }
@@ -848,6 +902,7 @@ QFcitxPlatformInputContext::validICByWindow(QWindow *w) {
 
 bool QFcitxPlatformInputContext::processCompose(uint keyval, uint state,
                                                 bool isRelease) {
+    qDebug()<<Q_FUNC_INFO;
     Q_UNUSED(state);
 
     if (!m_xkbComposeTable || isRelease)
