@@ -19,6 +19,74 @@
     },
     {
       "key": {
+        "uuid": "fe8caa01_87fa57db",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:18Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16425852155280.3831635240054285/changeCache/qt5/platforminputcontext/qfcitxplatforminputcontext.cpp:302]: (style) Local variable window shadows outer variabl",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d202ea2a_951c1231",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:18Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16425852155280.3831635240054285/changeCache/qt5/platforminputcontext/qfcitxplatforminputcontext.cpp:355]: (style) Local variable newRect shadows outer variabl",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "8bc3a60c_4feecb92",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:18Z",
+      "side": 1,
+      "message": "(style) The scope of the variable \u0027data\u0027 can be reduced",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "5efe4872_c4ab46f6",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:18Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16425852155280.3831635240054285/changeCache/qt5/platforminputcontext/qfcitxplatforminputcontext.cpp:844]: (style) Local variable proxy shadows outer variabl",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
         "uuid": "00eb8db6_74f52e49",
         "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.h",
         "patchSetId": 2
@@ -30,6 +98,40 @@
       "writtenOn": "2022-01-19T09:40:16Z",
       "side": 1,
       "message": "注释行数: 0; 改动行数(修改和新增): 2; 注释率: 0.0%",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "98668cbc_31d7defb",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:18Z",
+      "side": 1,
+      "message": "(style) Struct \u0027FcitxQtICData\u0027 has a constructor with 1 argument that is not explicit",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "176b5050_dbd738b2",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:18Z",
+      "side": 1,
+      "message": "(style) Struct \u0027FcitxQtICData\u0027 does not have a operator\u003d which is recommended since it has dynamic memory/resource allocation(s)",
       "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
