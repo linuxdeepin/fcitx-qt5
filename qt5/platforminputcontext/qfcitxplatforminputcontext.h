@@ -173,6 +173,9 @@ public:
     virtual void setFocusObject(QObject *object) Q_DECL_OVERRIDE;
     virtual QLocale locale() const Q_DECL_OVERRIDE;
 
+protected:
+    virtual bool eventFilter(QObject *obj, QEvent *e);
+
 public Q_SLOTS:
     void cursorRectChanged();
     void commitString(const QString &str);
