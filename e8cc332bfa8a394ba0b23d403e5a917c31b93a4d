@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "343f4ce6_3dd89846",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:16Z",
+      "side": 1,
+      "message": "注释行数: 14; 改动行数(修改和新增): 54; 注释率: 25.9%",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "00eb8db6_74f52e49",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-19T09:40:16Z",
+      "side": 1,
+      "message": "注释行数: 0; 改动行数(修改和新增): 2; 注释率: 0.0%",
+      "revId": "e8cc332bfa8a394ba0b23d403e5a917c31b93a4d",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
