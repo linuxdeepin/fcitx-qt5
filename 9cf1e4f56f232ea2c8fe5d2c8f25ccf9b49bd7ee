@@ -16,6 +16,74 @@
       "revId": "9cf1e4f56f232ea2c8fe5d2c8f25ccf9b49bd7ee",
       "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
       "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "e28fe853_6796f7ed",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 283,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-20T02:37:32Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16426462501660.20571176865727847/changeCache/qt5/platforminputcontext/qfcitxplatforminputcontext.cpp:302]: (style) Local variable window shadows outer variabl",
+      "revId": "9cf1e4f56f232ea2c8fe5d2c8f25ccf9b49bd7ee",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "d143ac4d_a8dfe451",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 350,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-20T02:37:32Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16426462501660.20571176865727847/changeCache/qt5/platforminputcontext/qfcitxplatforminputcontext.cpp:355]: (style) Local variable newRect shadows outer variabl",
+      "revId": "9cf1e4f56f232ea2c8fe5d2c8f25ccf9b49bd7ee",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "37fbd408_065c0a03",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 568,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-20T02:37:32Z",
+      "side": 1,
+      "message": "(style) The scope of the variable \u0027data\u0027 can be reduced",
+      "revId": "9cf1e4f56f232ea2c8fe5d2c8f25ccf9b49bd7ee",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    },
+    {
+      "key": {
+        "uuid": "a30799e4_6925b286",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 811,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-20T02:37:32Z",
+      "side": 1,
+      "message": "\u003e [/tmp/16426462501660.20571176865727847/changeCache/qt5/platforminputcontext/qfcitxplatforminputcontext.cpp:844]: (style) Local variable proxy shadows outer variabl",
+      "revId": "9cf1e4f56f232ea2c8fe5d2c8f25ccf9b49bd7ee",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
     }
   ]
 }
