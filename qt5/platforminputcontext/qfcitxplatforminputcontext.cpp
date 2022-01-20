@@ -612,12 +612,12 @@ bool QFcitxPlatformInputContext::eventFilter(QObject *obj, QEvent *e)
 ////                                                        "Show");
 //        QDBusConnection::sessionBus().call(m);
 //    }
-    if (e->type() == QEvent::MouseButtonPress || e->type() == QEvent::InputMethodQuery) {
-        qDebug()<<"dbus call";
-        QProcess process;
-        process.start("qdbus  com.deepin.im /com/deepin/im com.deepin.im.imActive true");
-        process.waitForFinished();
-    }
+//    if (e->type() == QEvent::MouseButtonPress || e->type() == QEvent::InputMethodQuery) {
+//        qDebug()<<"dbus call";
+//        QProcess process;
+//        process.start("qdbus  com.deepin.im /com/deepin/im com.deepin.im.imActive true");
+//        process.waitForFinished();
+//    }
     return QObject::eventFilter(obj, e);
 }
 
