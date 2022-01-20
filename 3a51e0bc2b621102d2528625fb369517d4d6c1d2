@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5555e840_ba89c194",
+        "filename": "qt5/platforminputcontext/qfcitxplatforminputcontext.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000002
+      },
+      "writtenOn": "2022-01-20T02:42:01Z",
+      "side": 1,
+      "message": "注释行数: 6; 改动行数(修改和新增): 6; 注释率: 100.0%",
+      "revId": "3a51e0bc2b621102d2528625fb369517d4d6c1d2",
+      "serverId": "7c03bcd7-3a90-48d7-8881-a48a22a829d2",
+      "unresolved": true
+    }
+  ]
+}
